@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8d3b614dafeb24b880fe0c63d5a657, type: 3}
   m_Name: Bullets
   m_EditorClassIdentifier: 
-  maximumCapacity: 50
+  maximumCapacity: 5
   damage: 5

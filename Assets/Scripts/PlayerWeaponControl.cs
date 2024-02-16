@@ -9,6 +9,9 @@ public class PlayerWeaponControl : MonoBehaviour
     public GunData currentWeaponData;
     public GunControl currentGun;
 
+    public List<AmmoType> AmmoTypes = new List<AmmoType>();
+    public Dictionary<AmmoType, int> ammoStore = new Dictionary<AmmoType, int>();
+    
     bool recoiling = false;
     float nextFireTime = 0;
 
@@ -17,7 +20,15 @@ public class PlayerWeaponControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        InitialiseAmmo();
+    }
+
+    void InitialiseAmmo()
+    {
+        for(int i = 0; i < AmmoTypes.Count; i++)
+        {
+            ammoStore.Add(AmmoTypes[i], AmmoTypes[i].maximumCapacity);
+        }
     }
 
     public void Fire()
@@ -44,11 +55,12 @@ public class PlayerWeaponControl : MonoBehaviour
 
     IEnumerator AutomaticRoutine()
     {
-        while(true)
+        while (ammoStore[currentWeaponData.ammoType] >0)
         {
             BulletFire();
             yield return new WaitUntil(() => { return (Time.time >= nextFireTime); }); // lamda function - anonymous method to look for a function which retunrs a bool
         }
+        BulletFire();
     }
 
     void BulletFire()
@@ -64,6 +76,19 @@ public class PlayerWeaponControl : MonoBehaviour
                 return;
             }
         }
+
+        //OUT OF AMMO
+        if (ammoStore[currentWeaponData.ammoType] <= 0)
+        {
+            //play empty clip sound (out of ammo)
+            print("clip is empty");
+            return;
+        }
+        else
+        {
+            updateAmmo( -1 );
+        }
+
         Instantiate(currentWeaponData.E_muzzleFlash, currentGun.Muzzle.position, currentGun.Muzzle.rotation, currentGun.Muzzle);
 
         //get bullet position correct (
@@ -91,6 +116,14 @@ public class PlayerWeaponControl : MonoBehaviour
 
         recoiling = true;
         nextFireTime = Time.time + currentWeaponData.fireRate;
+    }
+
+    void updateAmmo(int value)
+    {
+        ammoStore[currentWeaponData.ammoType] += value;
+        print("Bullets: " + ammoStore[currentWeaponData.ammoType]);
+        //TODO: update GUI
+
     }
 
 }
