@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 00632b93557283d4eaf6778ccc8e52bd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - preFab: {instanceID: 0}
+  - ammoType: {instanceID: 0}
+  - E_bullet: {instanceID: 0}
+  - E_muzzleFlash: {fileID: 2503206876997300415, guid: bfa26b915bf618f4d8a9b11c63f623ea, type: 3}
+  - E_hitEffect: {instanceID: 0}
+  - E_bulletMark: {instanceID: 0}
+  - A_fire: {instanceID: 0}
+  - A_dryFire: {instanceID: 0}
+  - A_impact: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
