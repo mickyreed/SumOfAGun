@@ -86,7 +86,7 @@ public class PlayerWeaponControl : MonoBehaviour
         }
         else
         {
-            updateAmmo( -1 );
+            updateAmmo( -1, currentWeaponData.ammoType);
         }
 
         Instantiate(currentWeaponData.E_muzzleFlash, currentGun.Muzzle.position, currentGun.Muzzle.rotation, currentGun.Muzzle);
@@ -118,12 +118,31 @@ public class PlayerWeaponControl : MonoBehaviour
         nextFireTime = Time.time + currentWeaponData.fireRate;
     }
 
-    void updateAmmo(int value)
-    {
-        ammoStore[currentWeaponData.ammoType] += value;
-        print("Bullets: " + ammoStore[currentWeaponData.ammoType]);
-        //TODO: update GUI
+    //void updateAmmo(int value)
+    //{
+    //    //ammoStore[currentWeaponData.ammoType] += value;
+    //    ammoStore[currentWeaponData.ammoType] = Mathf.Clamp(ammoStore[currentWeaponData.ammoType] 
+    //        + value, 0, currentWeaponData.ammoType.maximumCapacity);
+    //    //print("Bullets: " + ammoStore[currentWeaponData.ammoType]);
+        
+    //    //TODO: update GUI
 
+    //}
+
+    void updateAmmo(int value, AmmoType type) // overload method if ammo type is not matched
+    {
+        ammoStore[type] = Mathf.Clamp(ammoStore[type] + value, 0, 
+            type.maximumCapacity);
+        if(type == currentWeaponData.ammoType)
+        {
+            //update gui
+        }
+
+    }
+
+    public void AmmoPickUp(int value, AmmoType type)
+    {
+        updateAmmo(value, type);
     }
 
 }

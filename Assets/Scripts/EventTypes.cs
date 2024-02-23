@@ -11,4 +11,11 @@ public static class EventTypes
     {
 
     }
+
+    [System.Serializable]
+
+    public class IntAmmoEvent : UnityEvent<int, AmmoType>
+    {
+
+    }
 }
