@@ -556,6 +556,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  scrollWheel:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &1071509356
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -690,6 +693,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   currentWeaponData: {fileID: 11400000, guid: c1d5fbd681e960e4b86ca275a9d87557, type: 2}
+  guns: []
+  gunPivot: {fileID: 0}
   currentGun: {fileID: 107809955}
   AmmoTypes:
   - {fileID: 11400000, guid: efd6e15aac44f634da9e6f3b79ea6d83, type: 2}
@@ -840,7 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e78f35378708541b1ce55c5c2ade48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
+  parent: {fileID: 1071509353}
 --- !u!4 &1503284697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 622195577850728669, guid: 37549192cc4e7a94291d0749778b43fc, type: 3}
