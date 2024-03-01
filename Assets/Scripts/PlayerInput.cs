@@ -12,6 +12,8 @@ public class PlayerInput : MonoBehaviour
     public PlayerMovement movement;
     public UnityEvent shoot;
     public UnityEvent endShoot;
+    public EventTypes.IntEvent scrollWheel;
+
     // events are a special type of delegate (a function) thats used to call other functions,
     // these functions are listening to the event and when its invoked these functions will run
 
@@ -51,6 +53,11 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             endShoot.Invoke();
+        }
+
+        if (Input.mouseScrollDelta.y != 0f)
+        {
+            scrollWheel.Invoke((int)Mathf.Sin(Input.mouseScrollDelta.y));
         }
 
         movement.UpdateMovment(moveVector, lookVector, jump);
