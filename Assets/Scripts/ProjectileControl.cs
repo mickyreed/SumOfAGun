@@ -8,7 +8,6 @@ using UnityEngine.VFX;
 public class ProjectileControl : MonoBehaviour
 {
     public float speed = 20f;
-    public AmmoType ammoType; // for the damage
 
     public CapsuleCollider refCollider;
     Vector3 point1Offset;

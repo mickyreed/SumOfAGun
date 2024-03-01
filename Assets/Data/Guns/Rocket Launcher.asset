@@ -16,7 +16,7 @@ MonoBehaviour:
   isAutomatic: 0
   fireRate: 0.567
   ammoType: {fileID: 11400000, guid: 346efa3275cab69438476e608ca2c6b5, type: 2}
-  pivotOffset: {x: 0, y: 0, z: 0}
+  pivotOffset: {x: 0.41, y: -0.255, z: 0.883}
   E_bullet: {fileID: 0}
   E_muzzleFlash: {fileID: 0}
   E_hitEffect: {fileID: 0}
