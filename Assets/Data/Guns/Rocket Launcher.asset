@@ -12,16 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b926866d82cbc439da22ce01a2d5c5, type: 3}
   m_Name: Rocket Launcher
   m_EditorClassIdentifier: 
-  preFab: {fileID: 0}
+  preFab: {fileID: 4655607726603113900, guid: e533f0cd7aaf6ba4eaf83a4e13624c58, type: 3}
   isAutomatic: 0
   fireRate: 0.567
   ammoType: {fileID: 11400000, guid: 346efa3275cab69438476e608ca2c6b5, type: 2}
   pivotOffset: {x: 0.41, y: -0.255, z: 0.883}
+  reticleSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  reticleSize: {x: 80, y: 80}
   E_bullet: {fileID: 0}
-  E_muzzleFlash: {fileID: 0}
+  E_muzzleFlash: {fileID: 2503206876997300415, guid: bfa26b915bf618f4d8a9b11c63f623ea, type: 3}
   E_hitEffect: {fileID: 0}
   E_bulletMark: {fileID: 0}
   A_fire: {fileID: 0}
   A_dryFire: {fileID: 0}
   A_impact: {fileID: 0}
-  projectile: {fileID: 0}
+  projectile: {fileID: 960042488867020111, guid: c5dcf480ba3d91342b0b387736fbbffb, type: 3}

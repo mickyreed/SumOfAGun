@@ -11,7 +11,7 @@ public class DestroyInTime : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print("created");
+        //print("created");
         StartCoroutine(DestroyRoutine());
     }
 

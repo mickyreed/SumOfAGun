@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerWeaponControl : MonoBehaviour
 {
+    // delegate to be a generic ru n the correct fire function based off the type of weapon
+    EventTypes.VoidDel fire;
+    
     public Camera viewCamera;
     public LayerMask hitMask;
     public GunData currentWeaponData;
 
     public List<GunData> guns = new List<GunData>();
     public Transform gunPivot; // where we will instantiate the guns
-    int currentGunIndex = 0;
+    public int currentGunIndex = 0;
 
     AreaGun areaGunData;
     ProjectileGun projectileGunData;
@@ -24,16 +27,54 @@ public class PlayerWeaponControl : MonoBehaviour
     float nextFireTime = 0;
 
     Coroutine automaticRoutine;
+
+    public AmmoCounterGUIControl ammoGUI;
+    public ReticleControl reticleGUI;
     
     // Start is called before the first frame update
     void Start()
     {
         InitialiseAmmo();
+        BuildWeapon(currentGunIndex);
+        ammoGUI.InitialiseGUI(currentWeaponData, ammoStore[currentWeaponData.ammoType]);
+        reticleGUI.ChamgeReticle(currentWeaponData.reticleSprite, currentWeaponData.reticleSize);
+        SetGunFireFunction();
+    }
+
+    public void SwitchWeapons(int direction)
+    {
+        int gunCount = guns.Count - 1;
+        int id = currentGunIndex + direction;
+        //if(id <= gunCount && id >= 0) // if id is within list set curretn weapon to id
+        //{
+        //    currentGunIndex = id;
+        //    print($"Scrollimg = {gunCount}");
+        //}
+        if(id > gunCount) // if out of bounds if its too large
+        {
+            id = 0;
+            currentGunIndex = id;
+            //print($"Scrollimg > {gunCount}");
+        }
+        else if(id < 0)// if out of bounds if its too low
+        {
+            id = gunCount;
+            currentGunIndex = id;
+            //print($"Scrollimg < {gunCount}");
+        }
+        currentGunIndex = id;
+
+        ClearWeapon();
+        BuildWeapon(currentGunIndex);
+        ammoGUI.InitialiseGUI(currentWeaponData, ammoStore[currentWeaponData.ammoType]);
+        reticleGUI.ChamgeReticle(currentWeaponData.reticleSprite, currentWeaponData.reticleSize);
+        SetGunFireFunction();
+
     }
 
     void ClearWeapon()
     {
-        Destroy(currentGun);
+        Destroy(currentGun.gameObject);
         currentWeaponData = null;
         areaGunData = null;
         projectileGunData = null;
@@ -56,6 +97,16 @@ public class PlayerWeaponControl : MonoBehaviour
         if(currentWeaponData.GetType() == typeof(ProjectileGun))
         {
             projectileGunData = currentWeaponData as ProjectileGun;
+            fire = ProjectileFire;
+        }
+        else if (currentWeaponData.GetType() == typeof(AreaGun))
+        {
+            areaGunData = currentWeaponData as AreaGun;
+            fire = AreaGunFire;
+        }
+        else
+        {
+            fire = BulletFire;
         }
     }
 
@@ -75,12 +126,12 @@ public class PlayerWeaponControl : MonoBehaviour
         }
         else
         {
-            BulletFire();
+            fire();
         }
         
     }
 
-    public void endFIre()
+    public void endFire()
     {
         if (automaticRoutine != null)
         {
@@ -93,7 +144,7 @@ public class PlayerWeaponControl : MonoBehaviour
     {
         while (ammoStore[currentWeaponData.ammoType] >0)
         {
-            BulletFire();
+            fire();
             yield return new WaitUntil(() => { return (Time.time >= nextFireTime); }); // lamda function - anonymous method to look for a function which retunrs a bool
         }
         BulletFire();
@@ -133,7 +184,7 @@ public class PlayerWeaponControl : MonoBehaviour
         bool didHit = false;
 
         RaycastHit hit; // store info from raycast
-        if (FireRay(viewCamera.transform.forward, out hit));
+        if (FireRay(viewCamera.transform.forward, out hit))
         //shoot a ray from camera forward for infinity until it hits will return true or false
         {
             TakeDamageTest hitObj = hit.collider.GetComponent<TakeDamageTest>();
@@ -193,7 +244,7 @@ public class PlayerWeaponControl : MonoBehaviour
             bool didHit = false;
             RaycastHit hit; // store info from raycast
             
-            Vector3 spread = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1));
+            Vector3 spread = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             if(spread.magnitude > 1)
             {
                 spread.Normalize();
@@ -307,6 +358,7 @@ public class PlayerWeaponControl : MonoBehaviour
         if(type == currentWeaponData.ammoType)
         {
             //update gui
+            ammoGUI.UpdateAmmo(ammoStore[type]);
         }
 
     }

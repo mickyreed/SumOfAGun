@@ -57,7 +57,8 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.mouseScrollDelta.y != 0f)
         {
-            scrollWheel.Invoke((int)Mathf.Sin(Input.mouseScrollDelta.y));
+            scrollWheel.Invoke((int)Mathf.Sign(Input.mouseScrollDelta.y));
+            //print("Scrollimg");
         }
 
         movement.UpdateMovment(moveVector, lookVector, jump);

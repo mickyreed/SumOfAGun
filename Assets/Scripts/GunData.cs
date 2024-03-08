@@ -21,6 +21,10 @@ public class GunData : ScriptableObject
     [Tooltip("Offset for spawning the gun into the players hands")]
     public Vector3 pivotOffset;
 
+    [Header("GUI")]
+    public Sprite reticleSprite;
+    public Vector2 reticleSize;
+
     [Header("Effect")]
     [Tooltip("The projectile launched by the gun")]
     public GameObject E_bullet;
