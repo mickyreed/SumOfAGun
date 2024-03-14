@@ -6,7 +6,8 @@ using UnityEngine.Events;
 public static class EventTypes
 {
     public delegate void VoidDel();
-    
+    public delegate void VoidBoolDel(bool value);
+
     [System.Serializable]
 
     public class IntEvent : UnityEvent<int>

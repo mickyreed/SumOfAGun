@@ -13,6 +13,7 @@ public class PlayerInput : MonoBehaviour
     public UnityEvent shoot;
     public UnityEvent endShoot;
     public EventTypes.IntEvent scrollWheel;
+    bool isPaused;
 
     // events are a special type of delegate (a function) thats used to call other functions,
     // these functions are listening to the event and when its invoked these functions will run
@@ -21,12 +22,17 @@ public class PlayerInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PauseControl.instance.pause += (value) => { isPaused = value; }; // anonymous function t pass in pause value and set isPaused to the same value this will stop us swinging weapons when we are paused
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isPaused)
+        {
+            return;
+        }
+        
         GetInput();
     }
 

@@ -24,7 +24,21 @@ public class PlayerMovement : MonoBehaviour
     {
         //lock the cursor
         Cursor.lockState = CursorLockMode.Locked;
+        PauseControl.instance.pause += HandlePause;
     }
+
+    void HandlePause(bool paused)
+    {
+        if (paused)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
+
 
     public void UpdateMovment(Vector3 movement, Vector3 lookVector, bool jump)
     {
