@@ -9,6 +9,7 @@ public class PauseControl : MonoBehaviour
     public static PauseControl instance;
     public EventTypes.VoidBoolDel pause;
     bool paused = false;
+    bool gameOver = false;
     
     // Start is called before the first frame update
     void Awake()
@@ -25,6 +26,11 @@ public class PauseControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameOver)
+        {
+            return;
+        }
+        
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             paused = !paused; // if its true set to false, if its true set to false
@@ -50,4 +56,8 @@ public class PauseControl : MonoBehaviour
         pause?.Invoke(paused);
     }
 
+    public void GameOver()
+    {
+        gameOver = true;
+    }
 }

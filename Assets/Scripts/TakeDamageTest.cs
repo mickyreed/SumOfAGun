@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TakeDamageTest : MonoBehaviour
 {
+    public EventTypes.IntEvent tookDamage;
     [SerializeField]
     GameObject parent;
 
@@ -23,5 +25,6 @@ public class TakeDamageTest : MonoBehaviour
     public void TakeDamage(int damage)
     {
         print(gameObject.name + " took " +  damage + " points of damage");
+        tookDamage.Invoke(damage);
     }
 }
