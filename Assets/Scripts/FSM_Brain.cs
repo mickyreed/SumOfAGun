@@ -14,8 +14,19 @@ public class FSM_Brain : MonoBehaviour
     public GameObject currentTarget;
     public bool targetIsPlayer = false;
 
+    bool paused = false;
+
+    [Header("Player Detection")]
+    public float detectionRadius = 20f;
+    public LayerMask enemyMask;
+    bool targetInRange = false;
+    public CapsuleCollider visibilityCapsule;
+
+
     void Start()
     {
+        PauseControl.instance.pause += (paused) => {this.paused = paused;};
+        
         FSM_Base[] states = GetComponents<FSM_Base>(); //creates an array of every component of this type thats found on the game object
         
         for (int i = 0; i < states.Length; i++)
@@ -66,6 +77,70 @@ public class FSM_Brain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (paused)
+        {
+            return;
+        }
         currentState.UpdateState();
     }
+
+    Vector3 ReturnCapsulePoint(bool isOne, CapsuleCollider refCollider)
+    {
+        Vector3 point = refCollider.bounds.center;
+        //Vector3 point = transform.position; // this is also valid
+        switch (refCollider.direction)
+        {
+            case 0: //x
+                point += new Vector3(isOne ? 0 + refCollider.bounds.extents.x : 0 - refCollider.bounds.extents.x, 0f, 0f); //ifOne == true?
+                break;
+
+            case 1: //y
+                point += new Vector3(0f, isOne ? 0 + refCollider.bounds.extents.y : 0 - refCollider.bounds.extents.y, 0f);
+                break;
+
+            case 2: //z
+                point += new Vector3(0f, 0f, isOne? 0 + refCollider.bounds.extents.y : 0 - refCollider.bounds.extents.z);
+                break;
+        }
+        return point;
+    }
+
+    public bool DetectPlayer()
+    {
+        Collider[] playerColls = Physics.OverlapSphere(transform.position, detectionRadius, enemyMask);
+        if(playerColls.Length > 0 )
+        {
+            //Physics.CapsuleCast()
+            targetInRange = true;
+            RaycastHit hit;
+            if(Physics.CapsuleCast(ReturnCapsulePoint(false, visibilityCapsule),
+                ReturnCapsulePoint(true, visibilityCapsule),
+                visibilityCapsule.radius,
+                (playerColls[0].transform.position - transform.position).normalized,
+                out hit, Vector3.Distance(playerColls[0].transform.position, transform.position) +0.1f,
+                enemyMask))
+            {
+                targetIsPlayer = true;
+                if(hit.collider.transform.parent != null)
+                {
+                    currentTarget = hit.collider.transform.parent.gameObject;
+                }
+                else
+                {
+                    currentTarget = hit.collider.gameObject;
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
 }

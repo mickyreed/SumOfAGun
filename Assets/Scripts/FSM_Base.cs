@@ -28,7 +28,7 @@ public abstract class FSM_Base : MonoBehaviour
     internal void TransitionToNextState(FSM_Base nextState)
     {
         OnStateExit();
-        nextState.OnStateExit();
+        nextState.OnStateEnter();
     }
 
     private void OnStateExit()
