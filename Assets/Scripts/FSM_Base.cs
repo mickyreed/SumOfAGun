@@ -5,12 +5,17 @@ using UnityEngine;
 public abstract class FSM_Base : MonoBehaviour
 {
     public bool isActive = false;
-    
+    internal FSM_Brain brain;
 
     public void OnStateEnter()
     {
         isActive = true;
         OnStateEnterArgs();
+    }
+
+    public void AssignBrain(FSM_Brain brain)
+    {
+        this.brain = brain;
     }
 
     internal virtual void OnStateEnterArgs()
