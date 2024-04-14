@@ -29,6 +29,7 @@ public abstract class FSM_Base : MonoBehaviour
     {
         OnStateExit();
         nextState.OnStateEnter();
+        brain.RecieveNewState(nextState);
     }
 
     private void OnStateExit()

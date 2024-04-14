@@ -2163,6 +2163,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &734462601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 734462602}
+  m_Layer: 7
+  m_Name: GunPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &734462602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734462601}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2, y: 0.3, z: -0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 768145361}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &768145357
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,9 +2209,11 @@ GameObject:
   - component: {fileID: 768145362}
   - component: {fileID: 768145364}
   - component: {fileID: 768145363}
+  - component: {fileID: 768145368}
   - component: {fileID: 768145365}
   - component: {fileID: 768145366}
-  m_Layer: 0
+  - component: {fileID: 768145367}
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2207,7 +2240,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 1.95
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &768145359
@@ -2270,11 +2303,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768145357}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.42, y: 1, z: 14.8}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.26, y: 1, z: 11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 734462602}
   m_Father: {fileID: 386064764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &768145362
@@ -2334,11 +2368,15 @@ MonoBehaviour:
   initialState: {fileID: 768145365}
   agent: {fileID: 768145362}
   currentTarget: {fileID: 0}
-  targetIsPlayer: 0
+  targetIsPlayer: 1
+  combatControl: {fileID: 768145368}
   detectionRadius: 20
   enemyMask:
     serializedVersion: 2
     m_Bits: 8
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1
   visibilityCapsule: {fileID: 768145358}
 --- !u!114 &768145365
 MonoBehaviour:
@@ -2352,9 +2390,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401104622edefcc4b9151a0e8e75d48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   checkInterval: 0.3
-  chaseState: {fileID: 768145363}
+  chaseState: {fileID: 768145366}
 --- !u!114 &768145366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2369,6 +2407,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   checkInterval: 0.1
+  rangeTransitions:
+  - range: 15
+    stateToEnter: {fileID: 768145367}
+--- !u!114 &768145367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768145357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2321f0e84557ea448ab8f3db9507a074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
+  lookSpeed: 20
+--- !u!114 &768145368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768145357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c256e1f62e229574889e2ea594f57d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 9
+  currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
+  gunPivot: {fileID: 734462602}
+  currentGun: {fileID: 0}
 --- !u!1 &798732649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2922,7 +2995,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
+  field of view: 90
   orthographic: 0
   orthographic size: 5
   m_Depth: -1

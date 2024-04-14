@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     public float gravityForce = -20;
     public float jumpForce = 8;
     Vector3 currentMovement = new Vector3();
+    public Vector3 CurrentMovement
+    {
+        get { return currentMovement; }
+    }
     
     public Transform camera;
     public float lookSensitivity;

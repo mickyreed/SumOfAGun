@@ -13,22 +13,24 @@ public class FSM_Brain : MonoBehaviour
 
     public GameObject currentTarget;
     public bool targetIsPlayer = false;
-
+    public EnemyCombatControl combatControl;
     bool paused = false;
 
+    float timeOfLastHit = 0f;
     [Header("Player Detection")]
     public float detectionRadius = 20f;
     public LayerMask enemyMask;
+    public LayerMask obstacleMask;
     bool targetInRange = false;
+    //bool targetVisible = false;
     public CapsuleCollider visibilityCapsule;
-
 
     void Start()
     {
-        PauseControl.instance.pause += (paused) => {this.paused = paused;};
-        
+        PauseControl.instance.pause += (paused) => { this.paused = paused; };
+
         FSM_Base[] states = GetComponents<FSM_Base>(); //creates an array of every component of this type thats found on the game object
-        
+
         for (int i = 0; i < states.Length; i++)
         {
             states[i].isActive = false;
@@ -47,6 +49,19 @@ public class FSM_Brain : MonoBehaviour
         currentState.OnStateEnter();
     }
 
+    public void StartFire(bool misfire)
+    {
+        combatControl.Fire(misfire);
+    }
+    public void EndFire()
+    {
+        combatControl.EndFire();
+    }
+
+    public GunData ReturnCurrentWeapon()
+    {
+        return combatControl.currentWeaponData;
+    }
     public float getDistanceToDestination()
     {
         float distance = 0f;
@@ -58,23 +73,30 @@ public class FSM_Brain : MonoBehaviour
         return distance;
     }
 
+    public void StopOnSpot()
+    {
+        agent.SetDestination(transform.position);
+    }
     public void SetDestination(Vector3 destination)
     {
         agent.SetDestination(destination);
     }
-
     public void MoveToTarget()
     {
         agent.SetDestination(currentTarget.transform.position);
     }
-
     public void AssignTarget(GameObject target, bool isPlayer)
     {
         currentTarget = target;
         targetIsPlayer = isPlayer;
     }
-
+    public void RecieveNewState(FSM_Base newState)
+    {
+        currentState = newState;
+    }
+    
     // Update is called once per frame
+    
     void Update()
     {
         if (paused)
@@ -83,14 +105,13 @@ public class FSM_Brain : MonoBehaviour
         }
         currentState.UpdateState();
     }
-
     Vector3 ReturnCapsulePoint(bool isOne, CapsuleCollider refCollider)
     {
         Vector3 point = refCollider.bounds.center;
         //Vector3 point = transform.position; // this is also valid
         switch (refCollider.direction)
         {
-            case 0: //x
+            case 0: //x  //isOne ? checks if ifOne is true  - if it is do first condition else do second condition
                 point += new Vector3(isOne ? 0 + refCollider.bounds.extents.x : 0 - refCollider.bounds.extents.x, 0f, 0f); //ifOne == true?
                 break;
 
@@ -99,7 +120,7 @@ public class FSM_Brain : MonoBehaviour
                 break;
 
             case 2: //z
-                point += new Vector3(0f, 0f, isOne? 0 + refCollider.bounds.extents.y : 0 - refCollider.bounds.extents.z);
+                point += new Vector3(0f, 0f, isOne? 0 + refCollider.bounds.extents.z : 0 - refCollider.bounds.extents.z);
                 break;
         }
         return point;
@@ -112,22 +133,23 @@ public class FSM_Brain : MonoBehaviour
         {
             //Physics.CapsuleCast()
             targetInRange = true;
+            //targetVisible = true;
             RaycastHit hit;
             if(Physics.CapsuleCast(ReturnCapsulePoint(false, visibilityCapsule),
                 ReturnCapsulePoint(true, visibilityCapsule),
                 visibilityCapsule.radius,
                 (playerColls[0].transform.position - transform.position).normalized,
                 out hit, Vector3.Distance(playerColls[0].transform.position, transform.position) +0.1f,
-                enemyMask))
+                obstacleMask))
             {
                 targetIsPlayer = true;
-                if(hit.collider.transform.parent != null)
+                if(playerColls[0].transform.parent != null)
                 {
-                    currentTarget = hit.collider.transform.parent.gameObject;
+                    currentTarget = playerColls[0].transform.parent.gameObject;
                 }
                 else
                 {
-                    currentTarget = hit.collider.gameObject;
+                    currentTarget = playerColls[0].gameObject;
                 }
                 return true;
             }
@@ -142,5 +164,48 @@ public class FSM_Brain : MonoBehaviour
         }
     }
 
+    public bool CanHit()
+    {
+        if(Time.time >= timeOfLastHit + CalculateTimeUntilNextHit())
+        {
+            print("Can hit");
+            timeOfLastHit = Time.time;
+            return true;
+        }
+        else
+        {
+            print("Cannot hit");
+            return false;
+        }
+    }
+
+    float CalculateTimeUntilNextHit()
+    {
+        float farDistanceMod = 15;
+        float nearDistanceMod = 5;
+
+        float distanceMod = 1 + Mathf.Clamp01((
+            Vector3.Distance(currentTarget.transform.position, transform.position) 
+            - nearDistanceMod)/(farDistanceMod - nearDistanceMod)) *3;
+        print("distance mod: " + distanceMod);
+
+        Vector3 playerMove = currentTarget.GetComponent<PlayerMovement>().CurrentMovement;
+        playerMove.y = 0f;
+        float peakAngle = 90f;
+        float lateralAngle = Vector3.Angle(-transform.forward, playerMove);
+
+        float deviation = 1 + (lateralAngle > 90 ? 1 - (Mathf.Abs(lateralAngle - peakAngle) / peakAngle)
+            : Mathf.Abs(lateralAngle - peakAngle) / peakAngle) *3;
+
+        // example1: lateralAngle = 47
+        // (47 - 90)/90 = -43/90
+        // and being absolute it becomes 43/90c - which equals .477
+
+        // example2: lateralAngle = 110
+        // (110 -90)/90 = 20/90 - which equals 0.222
+        // which becomes 1 - 0.222 - which equals 0.778
+
+        return 0.5f * (distanceMod * deviation);
+    }
 
 }
