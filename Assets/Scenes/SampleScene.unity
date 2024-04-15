@@ -2410,6 +2410,11 @@ MonoBehaviour:
   rangeTransitions:
   - range: 15
     stateToEnter: {fileID: 768145367}
+    overrrideLifetime: 0
+  - range: 5
+    stateToEnter: {fileID: 768145367}
+    overrrideLifetime: 1
+  minimumLifetime: 0.6
 --- !u!114 &768145367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2423,7 +2428,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
-  lookSpeed: 20
+  lookSpeed: 90
+  exitsByLifetime: 1
+  minLifeTime: 1.25
+  maxLifeTime: 2
+  exitsByShots: 0
+  maxLifeTimeShots: 3
+  endLifeTImeState: {fileID: 768145366}
 --- !u!114 &768145368
 MonoBehaviour:
   m_ObjectHideFlags: 0

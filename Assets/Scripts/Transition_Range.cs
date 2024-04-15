@@ -7,4 +7,5 @@ public class Transition_Range
 {
     public float range = 10f;
     public FSM_Base stateToEnter;
+    public bool overrrideLifetime = false;
 }
