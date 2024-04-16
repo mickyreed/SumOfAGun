@@ -151,6 +151,7 @@ Transform:
   - {fileID: 33117076}
   - {fileID: 1815576109}
   - {fileID: 1206805059}
+  - {fileID: 1396275250}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &33117075
@@ -224,6 +225,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 0}
 --- !u!65 &41681505
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -708,6 +710,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 0}
 --- !u!65 &96483760
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1795,6 +1798,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 0}
 --- !u!65 &597153939
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1997,6 +2001,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 0}
 --- !u!65 &624614664
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2210,9 +2215,12 @@ GameObject:
   - component: {fileID: 768145364}
   - component: {fileID: 768145363}
   - component: {fileID: 768145368}
+  - component: {fileID: 768145369}
   - component: {fileID: 768145365}
   - component: {fileID: 768145366}
   - component: {fileID: 768145367}
+  - component: {fileID: 768145370}
+  - component: {fileID: 768145371}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -2309,6 +2317,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 734462602}
+  - {fileID: 1101178335}
   m_Father: {fileID: 386064764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &768145362
@@ -2370,6 +2379,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   targetIsPlayer: 1
   combatControl: {fileID: 768145368}
+  hurtState: {fileID: 768145370}
   detectionRadius: 20
   enemyMask:
     serializedVersion: 2
@@ -2453,6 +2463,94 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 734462602}
   currentGun: {fileID: 0}
+--- !u!114 &768145369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768145357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a14c00c9c229634468dd3aefd197419c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  tookDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 768145364}
+        m_TargetAssemblyTypeName: FSM_Brain, Assembly-CSharp
+        m_MethodName: TookDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  death:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 768145364}
+        m_TargetAssemblyTypeName: FSM_Brain, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &768145370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768145357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b48b58b730baef49aa515331271ba2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
+  retaliateState: {fileID: 768145367}
+  searchState: {fileID: 768145365}
+  recoveryTime: 0.5
+--- !u!114 &768145371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768145357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e78f35378708541b1ce55c5c2ade48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tookDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 768145369}
+        m_TargetAssemblyTypeName: FSM_Health, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 381232736981211802, guid: 0cad54cf48728ff4e970b1cb0431db5f, type: 3}
 --- !u!1 &798732649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2536,6 +2634,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 0}
 --- !u!65 &798732653
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3409,6 +3508,7 @@ GameObject:
   - component: {fileID: 1071509362}
   - component: {fileID: 1071509363}
   - component: {fileID: 1071509364}
+  - component: {fileID: 1071509365}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -3584,7 +3684,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 963194228}
-  - {fileID: 1101178335}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &1071509360
@@ -3628,7 +3727,7 @@ MonoBehaviour:
   viewCamera: {fileID: 963194227}
   hitMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 257
   currentWeaponData: {fileID: 11400000, guid: c1d5fbd681e960e4b86ca275a9d87557, type: 2}
   guns:
   - {fileID: 11400000, guid: c1d5fbd681e960e4b86ca275a9d87557, type: 2}
@@ -3643,6 +3742,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 346efa3275cab69438476e608ca2c6b5, type: 2}
   ammoGUI: {fileID: 419852647}
   reticleGUI: {fileID: 1273723546}
+  broadcastShot:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1071509362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3740,6 +3842,18 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &1071509365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071509353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b48bfc1fe27cd4e907e36c880d4e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1092311110
 GameObject:
   m_ObjectHideFlags: 0
@@ -3777,6 +3891,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 0}
 --- !u!65 &1092311112
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3933,6 +4048,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 0}
 --- !u!65 &1095147455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4064,7 +4180,7 @@ GameObject:
   - component: {fileID: 1101178338}
   - component: {fileID: 1101178337}
   - component: {fileID: 1101178336}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4084,7 +4200,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1071509359}
+  m_Father: {fileID: 768145361}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1101178336
 MonoBehaviour:
@@ -4101,8 +4217,8 @@ MonoBehaviour:
   tookDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1071509363}
-        m_TargetAssemblyTypeName: PlayerHealthControl, Assembly-CSharp
+      - m_Target: {fileID: 768145369}
+        m_TargetAssemblyTypeName: FSM_Health, Assembly-CSharp
         m_MethodName: TakeDamage
         m_Mode: 0
         m_Arguments:
@@ -4114,6 +4230,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 381232736981211802, guid: 0cad54cf48728ff4e970b1cb0431db5f, type: 3}
 --- !u!54 &1101178337
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4289,6 +4406,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 0}
 --- !u!114 &1151591609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4622,6 +4740,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 0}
 --- !u!65 &1286111213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4778,6 +4897,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 0}
 --- !u!65 &1319040859
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4897,6 +5017,38 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
+--- !u!1 &1396275249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1396275250}
+  m_Layer: 0
+  m_Name: Rooms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1396275250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396275249}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1547931042}
+  m_Father: {fileID: 32535535}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1406205259
 GameObject:
   m_ObjectHideFlags: 0
@@ -4934,6 +5086,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 0}
 --- !u!65 &1406205261
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5482,6 +5635,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 0}
 --- !u!65 &1523270348
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5684,6 +5838,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 0}
 --- !u!65 &1547340647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5757,6 +5912,100 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547340643}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1547931041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1547931042}
+  - component: {fileID: 1547931045}
+  - component: {fileID: 1547931044}
+  - component: {fileID: 1547931043}
+  m_Layer: 0
+  m_Name: Room
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1547931042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547931041}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 9.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1396275250}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1547931043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547931041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bad72848e6c79a4a94023e9a5881c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1547931044
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547931041}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 60, y: 20, z: 60}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1547931045
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547931041}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1549287774
 GameObject:
   m_ObjectHideFlags: 0
@@ -7324,6 +7573,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 0}
 --- !u!65 &1945862160
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7480,6 +7730,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 0}
 --- !u!65 &2031799962
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7808,6 +8059,10 @@ PrefabInstance:
     - target: {fileID: 5399224000556739822, guid: c5dcf480ba3d91342b0b387736fbbffb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011257948089433551, guid: c5dcf480ba3d91342b0b387736fbbffb, type: 3}
+      propertyPath: hitMask.m_Bits
+      value: 137
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

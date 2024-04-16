@@ -17,6 +17,7 @@ public class FSM_Brain : MonoBehaviour
     bool paused = false;
 
     float timeOfLastHit = 0f;
+    public FSM_Base hurtState;
     [Header("Player Detection")]
     public float detectionRadius = 20f;
     public LayerMask enemyMask;
@@ -206,6 +207,19 @@ public class FSM_Brain : MonoBehaviour
         // which becomes 1 - 0.222 - which equals 0.778
 
         return 0.5f * (distanceMod * deviation);
+    }
+
+    public void TookDamage()
+    {
+        if(hurtState != null)
+        {
+            currentState.TransitionToNextState(hurtState);
+        }
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 
 }

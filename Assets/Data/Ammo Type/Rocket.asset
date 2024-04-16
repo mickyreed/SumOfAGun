@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Rocket
   m_EditorClassIdentifier: 
   maximumCapacity: 10
-  damage: 20
+  damage: 90

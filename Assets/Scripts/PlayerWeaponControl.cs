@@ -30,6 +30,8 @@ public class PlayerWeaponControl : MonoBehaviour
 
     public AmmoCounterGUIControl ammoGUI;
     public ReticleControl reticleGUI;
+
+    public EventTypes.Vector3Event broadcastShot;
     
     // Start is called before the first frame update
     void Start()
@@ -127,6 +129,7 @@ public class PlayerWeaponControl : MonoBehaviour
         else
         {
             fire();
+            broadcastShot.Invoke(transform.position);
         }
         
     }
@@ -187,13 +190,23 @@ public class PlayerWeaponControl : MonoBehaviour
         if (FireRay(viewCamera.transform.forward, out hit))
         //shoot a ray from camera forward for infinity until it hits will return true or false
         {
+            bool hitBody = false;
             TakeDamageTest hitObj = hit.collider.GetComponent<TakeDamageTest>();
             if (hitObj != null)
             {
                 hitObj.TakeDamage(currentWeaponData.ammoType.damage); //this using dependency injection
+                hitBody = true;
             }
             //print(hit.collider.gameObject.name + "was hit at " + hit.point);
-            Instantiate(currentWeaponData.E_hitEffect, hit.point, Quaternion.identity);
+            if (hitBody)
+            {
+                Instantiate(hitObj.E_bloodSplatter, hit.point, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(currentWeaponData.E_hitEffect, hit.point, Quaternion.identity);
+            }
+            
             bulletdir = (hit.point - currentGun.Muzzle.position).normalized;
             didHit = true;
         }
@@ -257,13 +270,22 @@ public class PlayerWeaponControl : MonoBehaviour
             if (Physics.Raycast(r, out hit, Mathf.Infinity, hitMask))
             //shoot a ray from camera forward for infinity until it hits will return true or false
             {
+                bool hitBody = false;
                 TakeDamageTest hitObj = hit.collider.GetComponent<TakeDamageTest>();
                 if (hitObj != null)
                 {
                     hitObj.TakeDamage(currentWeaponData.ammoType.damage); //this using dependency injection
+                    hitBody = true;
                 }
-                
-                Instantiate(currentWeaponData.E_hitEffect, hit.point, Quaternion.identity);
+
+                if (hitBody)
+                {
+                    Instantiate(hitObj.E_bloodSplatter, hit.point, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(currentWeaponData.E_hitEffect, hit.point, Quaternion.identity);
+                }
                 //bulletdir = (hit.point - currentGun.Muzzle.position).normalized;
                 didHit = true;
             }
