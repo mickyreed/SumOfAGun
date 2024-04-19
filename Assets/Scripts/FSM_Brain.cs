@@ -25,6 +25,9 @@ public class FSM_Brain : MonoBehaviour
     bool targetInRange = false;
     //bool targetVisible = false;
     public CapsuleCollider visibilityCapsule;
+    public EventTypes.VoidDel soundHeard;
+    public GameObject tempTargetPrefab;
+    GameObject currentTempTarget;
 
     void Start()
     {
@@ -140,7 +143,8 @@ public class FSM_Brain : MonoBehaviour
                 ReturnCapsulePoint(true, visibilityCapsule),
                 visibilityCapsule.radius,
                 (playerColls[0].transform.position - transform.position).normalized,
-                out hit, Vector3.Distance(playerColls[0].transform.position, transform.position) +0.1f,
+                out hit, 
+                Vector3.Distance(playerColls[0].transform.position, transform.position) +0.1f,
                 obstacleMask))
             {
                 targetIsPlayer = true;
@@ -151,6 +155,10 @@ public class FSM_Brain : MonoBehaviour
                 else
                 {
                     currentTarget = playerColls[0].gameObject;
+                }
+                if(currentTempTarget != null)
+                {
+                    Destroy(currentTempTarget);
                 }
                 return true;
             }
@@ -209,11 +217,26 @@ public class FSM_Brain : MonoBehaviour
         return 0.5f * (distanceMod * deviation);
     }
 
+    public void HearSound(Vector3 soundPos)
+    {
+        if (!targetIsPlayer)
+        {
+            currentTempTarget = Instantiate(tempTargetPrefab, soundPos, Quaternion.identity);
+            currentTarget = currentTempTarget;
+            targetIsPlayer = false;
+
+            //transition to chase state
+            soundHeard?.Invoke(); // will run the delegate
+        }
+        
+    }
     public void TookDamage()
     {
         if(hurtState != null)
         {
             currentState.TransitionToNextState(hurtState);
+
+
         }
     }
 

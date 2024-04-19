@@ -12,6 +12,11 @@ public class State_Idle : FSM_Base
     float nextCheck = 0f;
     public FSM_Base chaseState;
 
+    internal override void OnStateEnterArgs()
+    {
+        brain.soundHeard += RecieveSoundTarget;
+    }
+
     public override void UpdateState()
     {
         if(Time.time > nextCheck)
@@ -25,6 +30,16 @@ public class State_Idle : FSM_Base
                 nextCheck = Time.time + checkInterval;
             }
         }
+    }
+
+    void RecieveSoundTarget()
+    {
+        TransitionToNextState(chaseState);
+    }
+
+    internal override void OnStateExitArgs()
+    {
+        brain.soundHeard -= RecieveSoundTarget;
     }
 
 }

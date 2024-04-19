@@ -45,6 +45,12 @@ public class State_Chase : FSM_Base
     {
         if (Time.time >= nextCheck)
         {
+            if (!brain.targetIsPlayer)
+            {
+                brain.DetectPlayer();
+            }
+
+
             if(rangeTransitions.Count > 0)
             {
                 int closestState = -1;
@@ -62,9 +68,11 @@ public class State_Chase : FSM_Base
                     }
                 }
 
-                if (closestState != -1 
-                    && (Time.time >= endLifetime 
-                    || rangeTransitions[closestState].overrrideLifetime))
+                if (closestState != -1  && (Time.time >= endLifetime  || rangeTransitions[closestState].overrrideLifetime)
+                    &&
+                    (rangeTransitions[closestState].playerMustBeTarget && brain.targetIsPlayer
+                    || !rangeTransitions[closestState].playerMustBeTarget && !brain.targetIsPlayer))
+                    //this to help to stop shooting at the ground if you get close enough even if it is player
                 {
                     // if a transition point is in range we move toward it
                     TransitionToNextState(rangeTransitions[closestState].stateToEnter);

@@ -195,6 +195,7 @@ public class PlayerWeaponControl : MonoBehaviour
             if (hitObj != null)
             {
                 hitObj.TakeDamage(currentWeaponData.ammoType.damage); //this using dependency injection
+                print("hit bullet");
                 hitBody = true;
             }
             //print(hit.collider.gameObject.name + "was hit at " + hit.point);

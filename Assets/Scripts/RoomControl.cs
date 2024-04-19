@@ -14,7 +14,7 @@ public class RoomControl : MonoBehaviour
         lastPlayerPos = soundPos;
         foreach(FSM_Brain ai in aisInRoom)
         {
-            //ai.HearSOund(); //to make this function in brain
+            ai.HearSound(soundPos); 
         }
     }
 
@@ -33,7 +33,10 @@ public class RoomControl : MonoBehaviour
         {
             playerInRoom = true;
             playerRef = other.gameObject;
-            //  pass the... room reference To the player one to the player broadcaster
+            
+            //  pass the room reference to the player broadcaster
+            playerRef.GetComponent<PlayerBroadcaster>().RecieveRoom(this);
+            
         }
     }
 
