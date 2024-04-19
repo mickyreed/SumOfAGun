@@ -228,7 +228,7 @@ public class FSM_Brain : MonoBehaviour
             //transition to chase state
             soundHeard?.Invoke(); // will run the delegate
         }
-        
+        //currentTempTarget = Instantiate(tempTargetPrefab, soundPos, Quaternion.identity);
     }
     public void TookDamage()
     {
