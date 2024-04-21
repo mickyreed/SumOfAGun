@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: a00c51677019c4343b82889d592c4fa5
+timeCreated: 1515423120
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 98684
+  packageName: sFuture Modules Core Pack (Free old version)
+  packageVersion: 1.4
+  assetPath: Assets/sFuture Modules/Prefabs/sFuture Modules Tube.prefab
+  uploadId: 222873

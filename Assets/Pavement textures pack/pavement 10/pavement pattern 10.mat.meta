@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 90cb3c645e5ce7f4b828c0fbe100151c
+labels:
+- Architecture
+- Brick
+- Ground
+- Pattern
+- Terrain
+- Tile
+- Pavement
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 12952
+  packageName: Pavement Textures Pack
+  packageVersion: 1.00
+  assetPath: Assets/Pavement textures pack/pavement 10/pavement pattern 10.mat
+  uploadId: 29416

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a641cfe3077db924297063a6022bb5fb
+timeCreated: 1503349438
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 98684
+  packageName: sFuture Modules Core Pack (Free old version)
+  packageVersion: 1.4
+  assetPath: Assets/sFuture Modules/Prefabs/Panel 1x1 Hollow.prefab
+  uploadId: 222873

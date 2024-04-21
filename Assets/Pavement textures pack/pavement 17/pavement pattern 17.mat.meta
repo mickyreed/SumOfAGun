@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: c4ef03d4db0207e4f929d97ef39d4438
+labels:
+- Ground
+- Pattern
+- Rock
+- Stone
+- Wall
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 12952
+  packageName: Pavement Textures Pack
+  packageVersion: 1.00
+  assetPath: Assets/Pavement textures pack/pavement 17/pavement pattern 17.mat
+  uploadId: 29416

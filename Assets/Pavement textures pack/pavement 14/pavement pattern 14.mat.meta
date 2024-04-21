@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 2fcceccded679c041bbd105eab2c434c
+labels:
+- Architecture
+- Moss
+- Nature
+- Pattern
+- Stone
+- Tile
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 12952
+  packageName: Pavement Textures Pack
+  packageVersion: 1.00
+  assetPath: Assets/Pavement textures pack/pavement 14/pavement pattern 14.mat
+  uploadId: 29416
