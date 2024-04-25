@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed62e8c3ca726c45ab6451d16e5dd2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 28
   refCollider: {fileID: 5278611541329990757}
   hitMask:
     serializedVersion: 2
