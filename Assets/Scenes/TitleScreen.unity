@@ -2124,6 +2124,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4443162710040262062, guid: 1e71af74bce3d654d859225c214889bc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443162710040262062, guid: 1e71af74bce3d654d859225c214889bc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 8011887703079562459, guid: 1e71af74bce3d654d859225c214889bc, type: 3}
       propertyPath: m_Name
       value: LevelLoader
