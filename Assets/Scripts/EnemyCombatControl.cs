@@ -21,6 +21,9 @@ public class EnemyCombatControl : MonoBehaviour
 
     Coroutine automaticRoutine;
 
+    [Header("Melee")]
+    public EventTypes.MeleeAttackEvent meleeAttack;
+
     void Start()
     {
         BuildWeapon();
@@ -29,6 +32,10 @@ public class EnemyCombatControl : MonoBehaviour
 
     void BuildWeapon()
     {
+        if(currentWeaponData.isMelee && currentWeaponData.preFab == null)
+        {
+            return;
+        }
         currentGun = Instantiate(currentWeaponData.preFab,
             gunPivot.TransformPoint(currentWeaponData.pivotOffset),
             gunPivot.rotation,
@@ -54,6 +61,29 @@ public class EnemyCombatControl : MonoBehaviour
         {
             fire = BulletFire;
         }
+    }
+
+    public void MeleAttack(int attackIndex)
+    {
+        if (currentWeaponData.isMelee && currentWeaponData.meleeAttacks.Count > 0
+            && attackIndex < +currentWeaponData.meleeAttacks.Count)
+        {
+            // run the attack
+            meleeAttack.Invoke(currentWeaponData.meleeAttacks[attackIndex]);
+        }
+        else if (!currentWeaponData.isMelee)
+        {
+            print("weapon is not a melee weapon");
+        }
+        else if (currentWeaponData.isMelee && currentWeaponData.meleeAttacks.Count == 0)
+        {
+            print("Weapon is a melee weapon, but attacks listed");
+        }
+        else if (currentWeaponData.isMelee && currentWeaponData.meleeAttacks.Count > 0 && attackIndex > currentWeaponData.meleeAttacks.Count)
+        {
+            print("Weapon is a melee weapon, and has attacks but attack index is too high");
+        }
+
     }
 
     public void Fire(bool hit)
@@ -104,6 +134,10 @@ public class EnemyCombatControl : MonoBehaviour
 
     void BulletFire(Vector3 direction)
     {
+        if (currentWeaponData.ammoType == null)
+        {
+            return;
+        }
         if (recoiling)
         {
             if (Time.time >= nextFireTime)

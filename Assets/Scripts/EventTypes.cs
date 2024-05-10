@@ -30,5 +30,11 @@ public static class EventTypes
 
     }
 
+    [System.Serializable]
+    public class MeleeAttackEvent : UnityEvent<MeleeAttackInfo> // pass in the struct
+    {
+
+    }
+
 
 }

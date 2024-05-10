@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class FSM_Brain : MonoBehaviour
 {
@@ -61,6 +62,13 @@ public class FSM_Brain : MonoBehaviour
         //currentState = initialState;
         currentState.OnStateEnter();
     }
+
+    public void ExecuteMeleeAttack(MeleeAttackInfo attackInfo)
+    {
+        animator.Play(attackInfo.name);
+        //assign damage info to the hurtbox
+    }
+
 
     public void StartFire(bool misfire)
     {
