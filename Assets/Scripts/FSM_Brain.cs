@@ -16,8 +16,17 @@ public class FSM_Brain : MonoBehaviour
     public EnemyCombatControl combatControl;
     bool paused = false;
 
+    [Header("Death")]
+    public bool hasDeathIMplemented = false;
+    public float deathDeleteDelay = 3.3f;
+    public List<GameObject> deathObjDestroyList = new List<GameObject>();
+    public List<Component> deathComponentDestroyList = new List<Component>();
+    float deathDeleteTime = 0f;
+    bool dead = false;
+
     float timeOfLastHit = 0f;
     public FSM_Base hurtState;
+    public Animator animator;
     [Header("Player Detection")]
     public float detectionRadius = 20f;
     public LayerMask enemyMask;
@@ -103,8 +112,16 @@ public class FSM_Brain : MonoBehaviour
     
     void Update()
     {
-        if (paused)
+        if (paused )
         {
+            return;
+        }
+        if (dead)
+        {
+            if(Time.time >= deathDeleteTime)
+            {
+                Destroy(gameObject);
+            }
             return;
         }
         currentState.UpdateState();
@@ -242,7 +259,31 @@ public class FSM_Brain : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        if (!hasDeathIMplemented)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            dead = true;
+            deathDeleteTime = Time.time + deathDeleteDelay;
+            if(currentTempTarget != null)
+            {
+                Destroy(currentTempTarget);
+            }
+            animator?.SetTrigger("Death");
+            for (int i = 0; i < deathObjDestroyList.Count; i++)
+            {
+                Destroy(deathObjDestroyList[i]);
+            }
+            for (int i = 0; i < deathComponentDestroyList.Count; i++)
+            {
+                Destroy(deathComponentDestroyList[i]);
+            }
+        }
+        
+        
     }
 
 }

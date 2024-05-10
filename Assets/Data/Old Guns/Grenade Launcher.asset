@@ -18,7 +18,7 @@ MonoBehaviour:
   ammoType: {fileID: 11400000, guid: 346efa3275cab69438476e608ca2c6b5, type: 2}
   pivotOffset: {x: 0.41, y: -0.255, z: 0.883}
   reticleSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  reticleSize: {x: 20, y: 20}
+  reticleSize: {x: 5, y: 5}
   E_bullet: {fileID: 0}
   E_muzzleFlash: {fileID: 2503206876997300415, guid: bfa26b915bf618f4d8a9b11c63f623ea, type: 3}
   E_hitEffect: {fileID: 0}

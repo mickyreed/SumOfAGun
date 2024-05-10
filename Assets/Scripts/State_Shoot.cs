@@ -20,6 +20,10 @@ public class State_Shoot : FSM_Base
 
     internal override void OnStateEnterArgs()
     {
+        if (brain.animator != null)
+        {
+            brain.animator.SetBool("Moving", false);
+        }
         lifeTime = Random.Range(minLifeTime, maxLifeTime);
         lifeTimeEnd = Time.time + lifeTime;
 

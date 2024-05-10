@@ -10,6 +10,10 @@ public class State_Hurt : FSM_Base
     float recoveryEnd = 0f;
     internal override void OnStateEnterArgs()
     {
+        if (brain.animator != null)
+        {
+            brain.animator.SetTrigger("GotHit");
+        }
         recoveryEnd = Time.time + recoveryTime;
     }
 

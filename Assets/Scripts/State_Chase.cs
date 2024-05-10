@@ -32,6 +32,10 @@ public class State_Chase : FSM_Base
         endLifetime = Time.time + minimumLifetime;
         if (!targetToClose)
         {
+            if (brain.animator != null)
+            {
+                brain.animator.SetBool("Moving", true);
+            }
             brain.MoveToTarget();
         }
         else

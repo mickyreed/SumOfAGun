@@ -25,7 +25,7 @@ public class TakeDamageTest : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        print(gameObject.name + " took " +  damage + " points of damage");
+        //print(gameObject.name + " took " +  damage + " points of damage");
         tookDamage.Invoke(damage);
     }
 }

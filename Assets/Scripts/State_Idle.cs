@@ -14,6 +14,10 @@ public class State_Idle : FSM_Base
 
     internal override void OnStateEnterArgs()
     {
+        if(brain.animator != null)
+        {
+            brain.animator.SetBool("Moving", false);
+        }
         brain.soundHeard += RecieveSoundTarget;
     }
 
