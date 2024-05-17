@@ -21,9 +21,15 @@ public class LevelLoader : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Update function is called "+ nextSceneName + sceneToLoad); // Add this line for debugging
+        
+    }
+
+    void LoadScene()
+    {
+        Debug.Log("LoadScene function is called " + nextSceneName + sceneToLoad); // Add this line for debugging
         // Check for user input to trigger transition
-        if ((!isTransitioning) && Input.anyKeyDown || Input.GetMouseButtonDown(0))
+        //if ((!isTransitioning) && Input.anyKeyDown || Input.GetMouseButtonDown(0))
+        if ((!isTransitioning))
         {
             Debug.Log("**************** Inside recieved input **********************");
             isTransitioning = true;
@@ -33,7 +39,6 @@ public class LevelLoader : MonoBehaviour
             //Invoke(nameof(LoadNextScene), fadeDuration);
             SceneManager.LoadScene(1);
         }
-
     }
 
     void PlayFadeAnimation(string animationName)
