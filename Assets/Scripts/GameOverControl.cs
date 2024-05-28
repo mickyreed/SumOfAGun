@@ -5,11 +5,12 @@ using UnityEngine.Events;
 using System;
 using UnityEngine.SceneManagement;
 
-public class PauseControl : MonoBehaviour
+public class GameOverControl : MonoBehaviour
 {
-    public static PauseControl instance;
+    public static GameOverControl instance;
     public EventTypes.VoidBoolDel pause;
-    public GameObject pauseMenuUI; // Reference to the Pause Menu UI
+
+    public GameObject GameOverMenuUI; // Reference to the Pause Menu UI
     //public MonoBehaviour playerMovementScript; // Reference to the player's movement script
     //public MonoBehaviour playerShootingScript; // Reference to the player's shooting script
 
@@ -24,42 +25,35 @@ public class PauseControl : MonoBehaviour
         {
             Destroy(instance); // destroy it
         }
-        PauseControl.instance = this; // set ourselves to be the instance
+        GameOverControl.instance = this; // set ourselves to be the instance
         DontDestroyOnLoad(gameObject); /// prevents object from being destroyed when next scene is entered
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        //GameOver();
+
         if (gameOver)
         {
             Pause();
+            //pause?.Invoke(paused);
             return;
         }
         
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            paused = !paused; // if its true set to false, if its true set to false
-            if (paused)
-            {
-                Pause();
-            }
-            else
-            {
-                UnPause();
-            }
-            
-            pause?.Invoke(paused);
-        }
+    }
+
+    public void TriggerGameOver()
+    {
+        GameOver();
     }
 
     public void Pause()
     {
         paused = true;
         Time.timeScale = 0f;
-        pauseMenuUI.SetActive(true); // Show the pause menu
-        //playerMovementScript.enabled = false; // Disable player movement
-        //playerShootingScript.enabled = false; // Disable player shooting
+        GameOverMenuUI.SetActive(true); // Show the pause menu
         Cursor.lockState = CursorLockMode.None; // Unlock cursor
         Cursor.visible = true; // Show cursor
     }
@@ -70,9 +64,7 @@ public class PauseControl : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked; // Lock cursor
         Cursor.visible = false; // Hide cursor
         Time.timeScale = 1f;
-        pauseMenuUI.SetActive(false); // Hide the pause menu
-        //playerMovementScript.enabled = true; // Enable player movement
-        //playerShootingScript.enabled = true; // Enable player shooting
+        GameOverMenuUI.SetActive(false);
         pause?.Invoke(paused);
     }
 
@@ -90,7 +82,6 @@ public class PauseControl : MonoBehaviour
     public void ReturnToMainMenu()
     {
         // Code to quit the game
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         UnPause();
     }
 }

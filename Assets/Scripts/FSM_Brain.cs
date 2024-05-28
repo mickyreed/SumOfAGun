@@ -39,10 +39,15 @@ public class FSM_Brain : MonoBehaviour
     public GameObject tempTargetPrefab;
     GameObject currentTempTarget;
 
+    public int pointsForKill = 10;
+    public int pointsForHeadshot = 20;
+
+    private PlayerScore playerScore;
+
     void Start()
     {
         PauseControl.instance.pause += (paused) => { this.paused = paused; };
-
+        playerScore = GameObject.FindObjectOfType<PlayerScore>();
         FSM_Base[] states = GetComponents<FSM_Base>(); //creates an array of every component of this type thats found on the game object
 
         for (int i = 0; i < states.Length; i++)
@@ -61,6 +66,20 @@ public class FSM_Brain : MonoBehaviour
 
         //currentState = initialState;
         currentState.OnStateEnter();
+    }
+
+    public void TakeDamage(int damage, bool isHeadshot)
+    {
+        if (isHeadshot)
+        {
+            playerScore.AddScore(pointsForHeadshot);
+        }
+        else
+        {
+            playerScore.AddScore(pointsForKill);
+        }
+
+        // Logic to handle enemy health and death
     }
 
     public void ExecuteMeleeAttack(MeleeAttackInfo attackInfo)

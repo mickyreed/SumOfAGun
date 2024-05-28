@@ -11,9 +11,9 @@ public class ExitPlate : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameCompleteMenu.SetActive(true);
-            // Pause Game
-            // Display Score
+            //GameCompleteMenu.SetActive(true);
+            GameOverControl.instance.TriggerGameOver();
+
         }
     }
 }

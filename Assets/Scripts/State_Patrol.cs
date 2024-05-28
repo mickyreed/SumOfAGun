@@ -32,15 +32,25 @@ public class State_Patrol : FSM_Base
             }
             currentPatrolPoint = closestPoint;
             brain.AssignTarget(patrolPoints[currentPatrolPoint].gameObject, false);
+            if (brain.animator != null)
+            {
+                brain.animator.SetBool("Moving", true);
+            }
             brain.MoveToTarget();
         }
     }
     public override void UpdateState()
     {
-        if(waiting && Time.time >= nextMoveTime)
+       
+
+        if (waiting && Time.time >= nextMoveTime)
         {
             //let's move
             waiting = false;
+            if (brain.animator != null)
+            {
+                brain.animator.SetBool("Moving", true);
+            }
             GoToNextPatrolPoint();
             nextDistanceCheck = Time.time + distanceCheckFrequency;
 
@@ -50,11 +60,16 @@ public class State_Patrol : FSM_Base
             if(brain.getDistanceToDestination() <= minStoppingDistance) // if we are close enough to stop
             {
                 waiting = true;
+                if (brain.animator != null)
+                {
+                    brain.animator.SetBool("Moving", false);
+                }
                 nextMoveTime = Time.time + waitTime;
             }
             else
             {
                 nextDistanceCheck = Time.time + distanceCheckFrequency; // if we are not close enough to stop
+                
             }
         }
     }
@@ -67,6 +82,10 @@ public class State_Patrol : FSM_Base
             currentPatrolPoint = 0;
         }
         brain.AssignTarget(patrolPoints[currentPatrolPoint].gameObject, false);
+        if (brain.animator != null)
+        {
+            brain.animator.SetBool("Moving", true);
+        }
         brain.MoveToTarget();
     }
 }

@@ -10,6 +10,9 @@ public class PlayerWeaponControl : MonoBehaviour
     public Camera viewCamera;
     public LayerMask hitMask;
     public GunData currentWeaponData;
+    
+    public float damage = 10f;
+    public LayerMask enemyLayer;
 
     public List<GunData> guns = new List<GunData>();
     public Transform gunPivot; // where we will instantiate the guns
@@ -32,7 +35,9 @@ public class PlayerWeaponControl : MonoBehaviour
     public ReticleControl reticleGUI;
 
     public EventTypes.Vector3Event broadcastShot;
-    
+
+    private PlayerScore playerScore;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +46,8 @@ public class PlayerWeaponControl : MonoBehaviour
         ammoGUI.InitialiseGUI(currentWeaponData, ammoStore[currentWeaponData.ammoType]);
         reticleGUI.ChamgeReticle(currentWeaponData.reticleSprite, currentWeaponData.reticleSize);
         SetGunFireFunction();
+        
+        playerScore = GameObject.FindObjectOfType<PlayerScore>(); // Find the PlayerScore script in the scene
     }
 
     public void SwitchWeapons(int direction)
@@ -134,6 +141,8 @@ public class PlayerWeaponControl : MonoBehaviour
         
     }
 
+
+
     public void endFire()
     {
         if (automaticRoutine != null)
@@ -194,8 +203,19 @@ public class PlayerWeaponControl : MonoBehaviour
             TakeDamageTest hitObj = hit.collider.GetComponent<TakeDamageTest>();
             if (hitObj != null)
             {
-                hitObj.TakeDamage(currentWeaponData.ammoType.damage); //this using dependency injection
+                bool isHeadshot = hit.collider.CompareTag("Head");
+                hitObj.TakeDamage(currentWeaponData.ammoType.damage); // Using dependency injection
                 print("hit bullet");
+
+                if (isHeadshot)
+                {
+                    playerScore.AddScore(100); // Headshot points
+                }
+                else
+                {
+                    playerScore.AddScore(10); // Body shot points
+                }
+
                 hitBody = true;
             }
             //print(hit.collider.gameObject.name + "was hit at " + hit.point);
@@ -275,7 +295,18 @@ public class PlayerWeaponControl : MonoBehaviour
                 TakeDamageTest hitObj = hit.collider.GetComponent<TakeDamageTest>();
                 if (hitObj != null)
                 {
-                    hitObj.TakeDamage(currentWeaponData.ammoType.damage); //this using dependency injection
+                    bool isHeadshot = hit.collider.CompareTag("Head");
+                    hitObj.TakeDamage(currentWeaponData.ammoType.damage);
+
+                    if (isHeadshot)
+                    {
+                        playerScore.AddScore(40); // Headshot points
+                    }
+                    else
+                    {
+                        playerScore.AddScore(10); // Body shot points
+                    }
+
                     hitBody = true;
                 }
 
@@ -340,6 +371,7 @@ public class PlayerWeaponControl : MonoBehaviour
         if(FireRay(viewCamera.transform.forward, out hit))
         {
             endPoint = hit.point;
+            playerScore.AddScore(50); // Body shot points
         }
         else
         {
