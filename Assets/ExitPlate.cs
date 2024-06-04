@@ -6,13 +6,14 @@ public class ExitPlate : MonoBehaviour
 {
     public GameObject GameCompleteMenu;
     public Animator plateAnim;
+    public GameManager gameManager;
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             //GameCompleteMenu.SetActive(true);
-            GameOverControl.instance.TriggerGameOver();
+            gameManager.ExitGame();
 
         }
     }

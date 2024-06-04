@@ -9,8 +9,16 @@ public class door : MonoBehaviour
 
     public bool requiresKey;
     public bool reqRed, reqBlue, reqGreen;
-    
+
+    private AudioManager audioManager;
+
     // Start is called before the first frame update
+    private void Start()
+    {
+        audioManager = AudioManager.instance;
+    }
+
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -42,6 +50,8 @@ public class door : MonoBehaviour
                 doorAnim.SetTrigger("OpenDoor");
                 AreaToSpawn.SetActive(true);
             }
+            // Play door sound
+            audioManager.PlaySound(audioManager.doorOpenSound);
 
         }
     }

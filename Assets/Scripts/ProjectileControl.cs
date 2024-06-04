@@ -9,6 +9,8 @@ public class ProjectileControl : MonoBehaviour
 {
     public float speed = 20f;
 
+    private AudioManager audioManager;
+
     public CapsuleCollider refCollider;
     Vector3 point1Offset;
     Vector3 point2Offset;
@@ -21,6 +23,8 @@ public class ProjectileControl : MonoBehaviour
 
     void Start()
     {
+        audioManager = AudioManager.instance;
+
         switch (refCollider.direction)
         {
             case 0: //x
@@ -39,6 +43,7 @@ public class ProjectileControl : MonoBehaviour
                 break;
         }
     }
+
 
     // Update is called once per frame
     void Update()
@@ -61,6 +66,7 @@ public class ProjectileControl : MonoBehaviour
     void Explode(Vector3 hitPos)
     {
         Instantiate(explosionPrefab, hitPos, Quaternion.identity);  //spawn explosion
+        audioManager.PlaySound(audioManager.explosionSound);
         Destroy(gameObject); 
     }
 }

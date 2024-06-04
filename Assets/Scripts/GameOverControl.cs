@@ -9,7 +9,6 @@ public class GameOverControl : MonoBehaviour
 {
     public static GameOverControl instance;
     public EventTypes.VoidBoolDel pause;
-
     public GameObject GameOverMenuUI; // Reference to the Pause Menu UI
     //public MonoBehaviour playerMovementScript; // Reference to the player's movement script
     //public MonoBehaviour playerShootingScript; // Reference to the player's shooting script
@@ -53,9 +52,10 @@ public class GameOverControl : MonoBehaviour
     {
         paused = true;
         Time.timeScale = 0f;
-        GameOverMenuUI.SetActive(true); // Show the pause menu
         Cursor.lockState = CursorLockMode.None; // Unlock cursor
         Cursor.visible = true; // Show cursor
+        GameOverMenuUI.SetActive(true); // Show the pause menu
+        
     }
 
     public void UnPause()
@@ -83,5 +83,6 @@ public class GameOverControl : MonoBehaviour
     {
         // Code to quit the game
         UnPause();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
     }
 }

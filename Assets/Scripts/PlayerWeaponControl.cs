@@ -6,7 +6,9 @@ public class PlayerWeaponControl : MonoBehaviour
 {
     // delegate to be a generic ru n the correct fire function based off the type of weapon
     EventTypes.VoidDel fire;
-    
+
+    private AudioManager audioManager;
+
     public Camera viewCamera;
     public LayerMask hitMask;
     public GunData currentWeaponData;
@@ -42,6 +44,7 @@ public class PlayerWeaponControl : MonoBehaviour
     void Start()
     {
         InitialiseAmmo();
+        audioManager = AudioManager.instance;
         BuildWeapon(currentGunIndex);
         ammoGUI.InitialiseGUI(currentWeaponData, ammoStore[currentWeaponData.ammoType]);
         reticleGUI.ChamgeReticle(currentWeaponData.reticleSprite, currentWeaponData.reticleSize);
@@ -181,6 +184,8 @@ public class PlayerWeaponControl : MonoBehaviour
         {
             //play empty clip sound (out of ammo)
             print("clip is empty");
+            // Play gun sound
+            audioManager.PlaySound(audioManager.clipEmptySound);
             return;
         }
         else
@@ -189,6 +194,7 @@ public class PlayerWeaponControl : MonoBehaviour
         }
 
         Instantiate(currentWeaponData.E_muzzleFlash, currentGun.Muzzle.position, currentGun.Muzzle.rotation, currentGun.Muzzle);
+        audioManager.PlaySound(audioManager.ak74GunSound);
 
         //get bullet position correct (
         Vector3 bulletdir = ((viewCamera.transform.position + viewCamera.transform.forward * 1000) - currentGun.Muzzle.position).normalized;
@@ -259,6 +265,7 @@ public class PlayerWeaponControl : MonoBehaviour
         {
             //play empty clip sound (out of ammo)
             print("clip is empty");
+            audioManager.PlaySound(audioManager.clipEmptySound);
             return;
         }
         else
@@ -267,10 +274,11 @@ public class PlayerWeaponControl : MonoBehaviour
         }
 
         Instantiate(currentWeaponData.E_muzzleFlash, currentGun.Muzzle.position, currentGun.Muzzle.rotation, currentGun.Muzzle);
+        audioManager.PlaySound(audioManager.shotGunSound);
 
-        
 
-        for(int i = 0; i < areaGunData.shotCount; i++)
+
+        for (int i = 0; i < areaGunData.shotCount; i++)
         {
             //get bullet position correct (
             //Vector3 bulletdir = ((viewCamera.transform.position + viewCamera.transform.forward * 1000) - currentGun.Muzzle.position).normalized;
@@ -356,6 +364,7 @@ public class PlayerWeaponControl : MonoBehaviour
         {
             //play empty clip sound (out of ammo)
             print("clip is empty");
+            audioManager.PlaySound(audioManager.clipEmptySound);
             return;
         }
         else
@@ -364,6 +373,7 @@ public class PlayerWeaponControl : MonoBehaviour
         }
 
         Instantiate(currentWeaponData.E_muzzleFlash, currentGun.Muzzle.position, currentGun.Muzzle.rotation, currentGun.Muzzle);
+        audioManager.PlaySound(audioManager.RocketLauncherSound);
 
         Vector3 endPoint;
         RaycastHit hit;
