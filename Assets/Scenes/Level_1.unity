@@ -37424,7 +37424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8011887703079562459, guid: 1e71af74bce3d654d859225c214889bc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -41650,6 +41650,7 @@ GameObject:
   - component: {fileID: 1071509366}
   - component: {fileID: 1071509367}
   - component: {fileID: 1071509368}
+  - component: {fileID: 1071509369}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -42055,6 +42056,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoreText: {fileID: 1504439933}
+--- !u!114 &1071509369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071509353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e78f35378708541b1ce55c5c2ade48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tookDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1071509363}
+        m_TargetAssemblyTypeName: PlayerHealthControl, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  parent: {fileID: 1071509353}
+  E_bloodSplatter: {fileID: 381232736981211802, guid: 0cad54cf48728ff4e970b1cb0431db5f, type: 3}
 --- !u!43 &1073276382
 Mesh:
   m_ObjectHideFlags: 0
@@ -109153,7 +109183,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 705507995}
-  - {fileID: 1071509359}
   - {fileID: 988198946}
   - {fileID: 1876288025447582636}
   - {fileID: 7838261950231454334}
@@ -109168,3 +109197,4 @@ SceneRoots:
   - {fileID: 916583091}
   - {fileID: 1318387179}
   - {fileID: 694991908}
+  - {fileID: 1071509359}

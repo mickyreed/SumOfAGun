@@ -3584,6 +3584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 7392459308980467909}
+  audioManager: {fileID: 0}
   agent: {fileID: 579375801480053602}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -3839,7 +3840,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  parent: {fileID: 0}
+  parent: {fileID: 2392419653712804829}
   E_bloodSplatter: {fileID: 381232736981211802, guid: 0cad54cf48728ff4e970b1cb0431db5f, type: 3}
 --- !u!114 &5006446826159396336
 MonoBehaviour:

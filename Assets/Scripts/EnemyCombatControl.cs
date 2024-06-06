@@ -6,6 +6,8 @@ public class EnemyCombatControl : MonoBehaviour
 {    // delegate to be a generic ru n the correct fire function based off the type of weapon
     EventTypes.VoidVec3Del fire;
 
+    private AudioManager audioManager;
+
     public LayerMask hitMask;
     public GunData currentWeaponData;
 
@@ -26,6 +28,7 @@ public class EnemyCombatControl : MonoBehaviour
 
     void Start()
     {
+        audioManager = AudioManager.instance;
         BuildWeapon();
         SetGunFireFunction();
     }
@@ -70,6 +73,7 @@ public class EnemyCombatControl : MonoBehaviour
         {
             // run the attack
             meleeAttack.Invoke(currentWeaponData.meleeAttacks[attackIndex]);
+            //audioManager.PlaySound(audioManager.enemySlashSound);
         }
         else if (!currentWeaponData.isMelee)
         {
@@ -151,7 +155,7 @@ public class EnemyCombatControl : MonoBehaviour
         }
 
         Instantiate(currentWeaponData.E_muzzleFlash, currentGun.Muzzle.position, currentGun.Muzzle.rotation, currentGun.Muzzle);
-
+        //audioManager.PlaySound(audioManager.enemyShotSound);
         //get bullet position correct (
         Vector3 bulletdir = ((gunPivot.transform.position + direction * 1000) - currentGun.Muzzle.position).normalized;
         // this will get the direction of the bullet frm the line to get the rotation angle of the rifle
@@ -195,7 +199,7 @@ public class EnemyCombatControl : MonoBehaviour
         }
 
         Instantiate(currentWeaponData.E_muzzleFlash, currentGun.Muzzle.position, currentGun.Muzzle.rotation, currentGun.Muzzle);
-
+        //audioManager.PlaySound(audioManager.enemyShotSound);
 
 
         for (int i = 0; i < areaGunData.shotCount; i++)
@@ -261,7 +265,7 @@ public class EnemyCombatControl : MonoBehaviour
         }
 
         Instantiate(currentWeaponData.E_muzzleFlash, currentGun.Muzzle.position, currentGun.Muzzle.rotation, currentGun.Muzzle);
-
+        //audioManager.PlaySound(audioManager.enemyShotSound);
         Vector3 endPoint;
         RaycastHit hit;
 
