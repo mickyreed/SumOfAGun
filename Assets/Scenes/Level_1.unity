@@ -30523,7 +30523,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1617916134}
+  - {fileID: 1831850411}
   m_Father: {fileID: 988198946}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -30543,7 +30543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b1eda6fb12bc848939a8c92c35cbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverMenuUI: {fileID: 1617916133}
+  GameOverMenuUI: {fileID: 1831850410}
 --- !u!1 &661272275 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4423277667133189585, guid: 3dd68e11624916548b04967866ad00f3, type: 3}
@@ -37343,6 +37343,10 @@ PrefabInstance:
     - target: {fileID: 192472203636545139, guid: 1e71af74bce3d654d859225c214889bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 976547835748040153, guid: 1e71af74bce3d654d859225c214889bc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2184406780985598721, guid: 1e71af74bce3d654d859225c214889bc, type: 3}
       propertyPath: m_Enabled
@@ -44508,8 +44512,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142834735}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -45248,8 +45252,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.4328651, y: 8.197751, z: 1.4034863}
-  m_Center: {x: 0.07372379, y: 3.5988755, z: -0.071640015}
+  m_Size: {x: 1.4328651, y: 2.240189, z: 1.4034863}
+  m_Center: {x: 0.07372379, y: 0.62009466, z: -0.071640015}
 --- !u!23 &1160234216
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65079,8 +65083,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443542000}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -65749,7 +65753,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450605370}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -76933,12 +76937,12 @@ GameObject:
   - component: {fileID: 1617916136}
   - component: {fileID: 1617916135}
   m_Layer: 5
-  m_Name: GameOver Menu Canvas
+  m_Name: BackPlate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1617916134
 RectTransform:
   m_ObjectHideFlags: 0
@@ -76955,7 +76959,7 @@ RectTransform:
   - {fileID: 1443542001}
   - {fileID: 1790373523}
   - {fileID: 1142834736}
-  m_Father: {fileID: 658484525}
+  m_Father: {fileID: 1831850411}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -87102,7 +87106,6 @@ GameObject:
   - component: {fileID: 1741785744}
   - component: {fileID: 1741785747}
   - component: {fileID: 1741785745}
-  - component: {fileID: 1741785748}
   m_Layer: 0
   m_Name: Exit Pressure Plate
   m_TagString: Untagged
@@ -87165,37 +87168,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1.1169634, y: 0.666728, z: 1.0785775}
   m_Center: {x: 1.0406985, y: 2.0682235, z: 1.3341763}
---- !u!54 &1741785748
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1741785743}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1746400044
 GameObject:
   m_ObjectHideFlags: 0
@@ -88431,7 +88407,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790373522}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5.5}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -88440,7 +88416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00012207031, y: -12}
+  m_AnchoredPosition: {x: 0.00012715656, y: -12}
   m_SizeDelta: {x: 98, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1790373524
@@ -88498,7 +88474,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
       - m_Target: {fileID: 916583092}
         m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
         m_MethodName: LoadSceneByName
@@ -88510,7 +88486,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: TitleScreen
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!114 &1790373525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90297,6 +90273,42 @@ Transform:
   - {fileID: 244030617}
   m_Father: {fileID: 170309776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1831850410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1831850411}
+  m_Layer: 5
+  m_Name: GameOver Menu Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1831850411
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831850410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1617916134}
+  m_Father: {fileID: 658484525}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 110, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1833589299
 GameObject:
   m_ObjectHideFlags: 0

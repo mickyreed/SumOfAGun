@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     //public static GameManager Instance;
-    private AudioManager audioManager;
+    public AudioManager audioManager;
     private void Awake()
     {
         //Instance = this;
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         //SceneManager.LoadSceneAsync(SceneIndexes.TitleScreen, LoadSceneMode.Additive);
         audioManager = AudioManager.instance;
         audioManager.PlaySound(audioManager.beamDownSound);
-        audioManager.PlayMusic(audioManager.backgroundMusic);
+        audioManager.PlayBackgroundMusic();
     }
 
     // Update is called once per frame

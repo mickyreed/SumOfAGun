@@ -16,12 +16,7 @@ public class LevelLoader : MonoBehaviour
     void Start()
     {
         // Start the cross fade animation
-        //PlayFadeAnimation("CrossFade_Start");
-    }
-
-    private void Awake()
-    {
-        crossFadeCanvasGroup = GetComponent<CanvasGroup>();
+        PlayFadeAnimation("CrossFade_Start");
     }
 
     void Update()
@@ -39,35 +34,20 @@ public class LevelLoader : MonoBehaviour
             Debug.Log("**************** Inside recieved input **********************");
             isTransitioning = true;
             // Start the cross fade animation
-            ////FadeIn("CrossFade_Start", 1f);
+            PlayFadeAnimation("CrossFade_End");
             // Load the level after the fade out
             //Invoke(nameof(LoadNextScene), fadeDuration);
             SceneManager.LoadScene(1);
         }
     }
 
-    public void FadeIn(string animationName, float duration = 1f)
+    void PlayFadeAnimation(string animationName)
     {
-        Debug.Log("Play FadeIN is called");
-        crossFadeCanvasGroup.alpha = 1f;
-        crossFadeCanvasGroup.interactable = true;
-        crossFadeCanvasGroup.blocksRaycasts = true;
-        LoadScene();
-        // Animate the fade in effect
+        Debug.Log("Play Fade Animation is called");
         // Play the specified animation
         //crossFadeCanvasGroup.GetComponent<Animation>().Play(animationName);
     }
 
-    public void FadeOut(string animationName, float duration = 1f)
-    {
-        Debug.Log("Play FadeOUT is called");
-        crossFadeCanvasGroup.alpha = 0f;
-        crossFadeCanvasGroup.interactable = false;
-        crossFadeCanvasGroup.blocksRaycasts = false;
-        // Animate the fade in effect
-        // Play the specified animation
-        //crossFadeCanvasGroup.GetComponent<Animation>().Play(animationName);
-    }
     //void LoadNextScene()
     //{
     //    Load the level_1 scene
@@ -90,7 +70,7 @@ public class LevelLoader : MonoBehaviour
             Debug.Log("Load Scene by Name is called");
             isTransitioning = true;
             // Start the cross fade animation
-            ////PlayFadeAnimation("CrossFade_End");
+            PlayFadeAnimation("CrossFade_End");
             // Store the scene name to load
             sceneToLoad = sceneName;
             // Load the specified scene after the fade out
