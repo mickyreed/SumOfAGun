@@ -93,14 +93,14 @@ public class FSM_Brain : MonoBehaviour
         animator.Play(attackInfo.name);
         //assign damage info to the hurtbox
         // play melee sound
-        audioManager.PlaySound(audioManager.enemySlashSound);
+        //audioManager.PlaySound(audioManager.enemySlashSound);
     }
 
 
     public void StartFire(bool misfire)
     {
         combatControl.Fire(misfire);
-        audioManager.PlaySound(audioManager.ak74GunSound);
+        //audioManager.PlaySound(audioManager.ak74GunSound);
     }
     public void EndFire()
     {
