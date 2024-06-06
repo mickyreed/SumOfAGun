@@ -8,6 +8,7 @@ public class FSM_Brain : MonoBehaviour
 {
     public FSM_Base initialState;
     FSM_Base currentState;
+    public AudioManager audioManager;
 
     [SerializeField]
     NavMeshAgent agent;
@@ -46,6 +47,7 @@ public class FSM_Brain : MonoBehaviour
 
     void Start()
     {
+        audioManager = AudioManager.instance;
         PauseControl.instance.pause += (paused) => { this.paused = paused; };
         playerScore = GameObject.FindObjectOfType<PlayerScore>();
         FSM_Base[] states = GetComponents<FSM_Base>(); //creates an array of every component of this type thats found on the game object
@@ -73,10 +75,14 @@ public class FSM_Brain : MonoBehaviour
         if (isHeadshot)
         {
             playerScore.AddScore(pointsForHeadshot);
+            // play boost sound
+            audioManager.PlaySound(audioManager.deathRoarSound);
         }
         else
         {
             playerScore.AddScore(pointsForKill);
+            // play hiot sound
+            audioManager.PlaySound(audioManager.BulletHitSound);
         }
 
         // Logic to handle enemy health and death
@@ -86,12 +92,15 @@ public class FSM_Brain : MonoBehaviour
     {
         animator.Play(attackInfo.name);
         //assign damage info to the hurtbox
+        // play melee sound
+        audioManager.PlaySound(audioManager.enemySlashSound);
     }
 
 
     public void StartFire(bool misfire)
     {
         combatControl.Fire(misfire);
+        audioManager.PlaySound(audioManager.ak74GunSound);
     }
     public void EndFire()
     {
@@ -280,7 +289,6 @@ public class FSM_Brain : MonoBehaviour
         {
             currentState.TransitionToNextState(hurtState);
 
-
         }
     }
 
@@ -289,6 +297,7 @@ public class FSM_Brain : MonoBehaviour
         //Destroy(gameObject);
         if (!hasDeathIMplemented)
         {
+            //play death sound
             Destroy(gameObject);
         }
         else

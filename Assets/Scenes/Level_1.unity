@@ -8258,6 +8258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 187304977}
+  audioManager: {fileID: 0}
   agent: {fileID: 187304976}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -13160,6 +13161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 319776739}
+  audioManager: {fileID: 0}
   agent: {fileID: 319776738}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -27499,6 +27501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 584615087}
+  audioManager: {fileID: 0}
   agent: {fileID: 584615086}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -31700,6 +31703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 686109447}
+  audioManager: {fileID: 0}
   agent: {fileID: 686109446}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -32137,6 +32141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461f02b79d900eb4ca4f0dd046cdc5c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
 --- !u!4 &694991908
 Transform:
   m_ObjectHideFlags: 0
@@ -34286,6 +34291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 768145365}
+  audioManager: {fileID: 0}
   agent: {fileID: 768145362}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -41148,6 +41154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 1055130498}
+  audioManager: {fileID: 0}
   agent: {fileID: 1055130497}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -43510,6 +43517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 1106741693}
+  audioManager: {fileID: 0}
   agent: {fileID: 1106741692}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -46320,6 +46328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 1200876338}
+  audioManager: {fileID: 0}
   agent: {fileID: 1200876337}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -47990,6 +47999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 1247823535}
+  audioManager: {fileID: 0}
   agent: {fileID: 1247823534}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -54493,6 +54503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 1295574474}
+  audioManager: {fileID: 0}
   agent: {fileID: 1295574473}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -57195,6 +57206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 1370763366}
+  audioManager: {fileID: 0}
   agent: {fileID: 1370763365}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -65465,6 +65477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 1448258613}
+  audioManager: {fileID: 0}
   agent: {fileID: 1448258612}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -79274,6 +79287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 1701327299}
+  audioManager: {fileID: 0}
   agent: {fileID: 1701327298}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -79855,6 +79869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 1707299185}
+  audioManager: {fileID: 0}
   agent: {fileID: 1707299184}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -87307,6 +87322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 1750631248}
+  audioManager: {fileID: 0}
   agent: {fileID: 1750631247}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -87945,6 +87961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 1785740475}
+  audioManager: {fileID: 0}
   agent: {fileID: 1785740474}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -94649,6 +94666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 1911604873}
+  audioManager: {fileID: 0}
   agent: {fileID: 1911604872}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -95294,6 +95312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 1917311577}
+  audioManager: {fileID: 0}
   agent: {fileID: 1917311576}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -102991,6 +103010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 2011298559}
+  audioManager: {fileID: 0}
   agent: {fileID: 2011298558}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -103574,6 +103594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 2014953475}
+  audioManager: {fileID: 0}
   agent: {fileID: 2014953474}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -106494,6 +106515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 2099356812}
+  audioManager: {fileID: 0}
   agent: {fileID: 2099356811}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -107529,6 +107551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 2118257321}
+  audioManager: {fileID: 0}
   agent: {fileID: 2118257320}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
@@ -108077,6 +108100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 2131373845}
+  audioManager: {fileID: 0}
   agent: {fileID: 2131373844}
   currentTarget: {fileID: 0}
   targetIsPlayer: 0
