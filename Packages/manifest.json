@@ -3,6 +3,12 @@
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.feature.development": "1.0.2",
+<<<<<<< Updated upstream
+=======
+    "com.unity.feature.gameplay-storytelling": "1.0.0",
+    "com.unity.postprocessing": "3.4.0",
+    "com.unity.probuilder": "5.2.2",
+>>>>>>> Stashed changes
     "com.unity.timeline": "1.8.6",
     "com.unity.ugui": "2.0.0",
     "com.unity.visualscripting": "1.9.0",

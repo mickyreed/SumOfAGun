@@ -81,7 +81,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 9
   explodes: 1
-  explosionPrefab: {fileID: 7917809687101287239, guid: 805ebc38cc452fb4aa14e5dc83d37efb, type: 3}
+  explosionPrefab: {fileID: 100010, guid: c881f807f0291da4793d2c580887c39f, type: 3}
 --- !u!136 &5278611541329990757
 CapsuleCollider:
   m_ObjectHideFlags: 0
