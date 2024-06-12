@@ -82,6 +82,7 @@ MonoBehaviour:
     m_Bits: 137
   explodes: 1
   explosionPrefab: {fileID: 7917809687101287239, guid: 805ebc38cc452fb4aa14e5dc83d37efb, type: 3}
+  explosionPrefab: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
 --- !u!136 &6999049595690498009
 CapsuleCollider:
   m_ObjectHideFlags: 0
