@@ -5191,7 +5191,7 @@ MonoBehaviour:
     m_Bits: 8
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1025
   visibilityCapsule: {fileID: 5177018064273423663}
   tempTargetPrefab: {fileID: 5794250016487110218, guid: b7479df3c24c616429dc1e0bc25c34b9, type: 3}
   pointsForKill: 10
@@ -5210,7 +5210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 9
   currentWeaponData: {fileID: 11400000, guid: 355d6bdc2e1fef845b88f3a4abeb227f, type: 2}
   gunPivot: {fileID: 4535160574074611619}
   currentGun: {fileID: 0}
@@ -5383,7 +5383,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   parent: {fileID: 8960573510032185883}
-  E_bloodSplatter: {fileID: 381232736981211802, guid: 0cad54cf48728ff4e970b1cb0431db5f, type: 3}
+  E_bloodSplatter: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}
 --- !u!114 &2579274608010069947
 MonoBehaviour:
   m_ObjectHideFlags: 0

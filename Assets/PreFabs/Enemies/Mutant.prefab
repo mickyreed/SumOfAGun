@@ -3841,7 +3841,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   parent: {fileID: 2392419653712804829}
-  E_bloodSplatter: {fileID: 381232736981211802, guid: 0cad54cf48728ff4e970b1cb0431db5f, type: 3}
+  E_bloodSplatter: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
 --- !u!114 &5006446826159396336
 MonoBehaviour:
   m_ObjectHideFlags: 0
