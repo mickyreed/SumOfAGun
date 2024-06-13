@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     {
         //Instance = this;
         //SceneManager.LoadSceneAsync(SceneIndexes.TitleScreen, LoadSceneMode.Additive);
+
     }
 
     private void Start()
@@ -20,6 +21,9 @@ public class GameManager : MonoBehaviour
         audioManager = AudioManager.instance;
         audioManager.PlaySound(audioManager.beamDownSound);
         audioManager.PlayBackgroundMusic();
+        //PauseControl.instance.UnPause();
+        Time.timeScale = 1f;
+
     }
 
     // Update is called once per frame

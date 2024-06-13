@@ -15,14 +15,16 @@ MonoBehaviour:
   preFab: {fileID: 4887641765271093357, guid: 428beae711c64ce45bae4d1f6c14a0f8, type: 3}
   isAutomatic: 0
   fireRate: 0.1
-  ammoType: {fileID: 11400000, guid: efd6e15aac44f634da9e6f3b79ea6d83, type: 2}
+  ammoType: {fileID: 11400000, guid: c36e4fc5876c8ca4d92c7ae337f85c9d, type: 2}
   pivotOffset: {x: 0.41, y: -0.255, z: 0.883}
+  isMelee: 0
+  meleeAttacks: []
   reticleSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   reticleSize: {x: 20, y: 20}
   E_bullet: {fileID: 4804630071907011802, guid: 35ada933ce7ded240b308c90ab0cd51d, type: 3}
   E_muzzleFlash: {fileID: 2503206876997300415, guid: bfa26b915bf618f4d8a9b11c63f623ea, type: 3}
   E_hitEffect: {fileID: 381232736981211802, guid: 0cfd42994bf35fa45a15314392c4cc6b, type: 3}
   E_bulletMark: {fileID: 0}
-  A_fire: {fileID: 0}
+  A_fire: {fileID: 8300000, guid: 19b6db7ce7a924b6493eac4bf8acf69d, type: 3}
   A_dryFire: {fileID: 0}
-  A_impact: {fileID: 0}
+  A_impact: {fileID: 8300000, guid: 8cbacfe055db94d6c8a9a6deebc96eb6, type: 3}

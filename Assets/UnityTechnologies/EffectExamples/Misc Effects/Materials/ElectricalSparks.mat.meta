@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8a4a4a5e8833ea044b68643097cffa44
+timeCreated: 1473684431
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 127325
+  packageName: Particle Pack
+  packageVersion: 1.7
+  assetPath: Assets/UnityTechnologies/EffectExamples/Misc Effects/Materials/ElectricalSparks.mat
+  uploadId: 564952

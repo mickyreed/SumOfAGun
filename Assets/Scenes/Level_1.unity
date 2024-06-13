@@ -5822,7 +5822,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &101602323
 Transform:
@@ -5898,14 +5898,13 @@ MeshRenderer:
   m_Materials:
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 2100000, guid: 21ae2c17e7f4a4447aea76bbeded97b8, type: 2}
-  - {fileID: 2100000, guid: c10b1630d5621ec48a17223c3c102023, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 0.5
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
