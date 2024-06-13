@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 6599296578444198959}
   - component: {fileID: 7331055353599495023}
   - component: {fileID: 6064547632009924646}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,7 +683,7 @@ MonoBehaviour:
       - m_Target: {fileID: 7772077097497176860}
         m_TargetAssemblyTypeName: TakeDamageTest, Assembly-CSharp
         m_MethodName: TakeDamage
-        m_Mode: 0
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3663,7 +3663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMask:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 1032
   currentWeaponData: {fileID: 11400000, guid: dd594e3293cbe9b43a9d759dc8e40f76, type: 2}
   gunPivot: {fileID: 4826704626657007402}
   currentGun: {fileID: 0}

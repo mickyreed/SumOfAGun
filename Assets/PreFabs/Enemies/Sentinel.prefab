@@ -5132,7 +5132,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -5211,10 +5211,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMask:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 1032
   currentWeaponData: {fileID: 11400000, guid: 355d6bdc2e1fef845b88f3a4abeb227f, type: 2}
   gunPivot: {fileID: 4535160574074611619}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
