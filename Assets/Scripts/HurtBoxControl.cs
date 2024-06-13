@@ -43,6 +43,7 @@ public class HurtBoxControl : MonoBehaviour
             if (hitObj != null && !hitObjs.Contains(hitObj.ReturnParentObj())) // and the hasset doesnt contain the parent object of the colldier we hit
             {
                 // hit it and deal damage
+                print("melee deal damage");
                 hitObj.TakeDamage(currentAttack.damage);
                 hitObjs.Add(hitObj.ReturnParentObj());
             }
@@ -61,6 +62,7 @@ public class HurtBoxControl : MonoBehaviour
 
     public void EndCast()
     {
+        hitObjs.Clear();
         StopCoroutine(castRoutine);
     }
     

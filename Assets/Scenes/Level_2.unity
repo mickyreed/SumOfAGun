@@ -3851,7 +3851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4666384426522471670, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.52
+      value: -0.51
       objectReference: {fileID: 0}
     - target: {fileID: 4666384426522471670, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3859,19 +3859,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4666384426522471670, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4666384426522471670, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4666384426522471670, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4666384426522471670, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4666384426522471670, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3879,7 +3879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4666384426522471670, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 4666384426522471670, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -8542,6 +8542,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 1757575603}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -9078,7 +9079,7 @@ Animation:
   m_GameObject: {fileID: 211420206}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 1a0c3f17bad28a74999eaa3982f32baf, type: 2}
   m_Animations:
   - {fileID: 0}
   - {fileID: 7400000, guid: 055ae146b8bbaf94bb5134a82c9bd05e, type: 2}
@@ -9098,12 +9099,12 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -13383,6 +13384,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 834303727}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -27706,6 +27708,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 189292146}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -27970,6 +27973,14 @@ PrefabInstance:
     - target: {fileID: 3060271071271231847, guid: 5348eb3c107152e46a01538af762f851, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3716837590670983350, guid: 5348eb3c107152e46a01538af762f851, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006446826159396336, guid: 5348eb3c107152e46a01538af762f851, type: 3}
+      propertyPath: outOfRangeTransition.range
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 6064547632009924646, guid: 5348eb3c107152e46a01538af762f851, type: 3}
       propertyPath: parent
@@ -32141,6 +32152,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 634530141}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -34606,6 +34618,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 734462602}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -41589,6 +41602,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 1167130002}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -43798,6 +43812,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 1804665695}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -45962,9 +45977,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 523245953}
     m_Modifications:
+    - target: {fileID: 1998509754366469036, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
+      propertyPath: isActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938877084480767513, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4666384426522471670, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.31
+      value: 9.08
       objectReference: {fileID: 0}
     - target: {fileID: 4666384426522471670, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -46557,6 +46580,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 750326668}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -48170,6 +48194,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 980112568}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -54678,6 +54703,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 802683859}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -54939,6 +54965,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 523245953}
     m_Modifications:
+    - target: {fileID: 1998509754366469036, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938877084480767513, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4666384426522471670, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.04
@@ -54981,7 +55015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7814605154688917528, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
       propertyPath: detectionRadius
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8960573510032185883, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
       propertyPath: m_Name
@@ -55330,73 +55364,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316648564}
   m_CullTransparentMesh: 1
---- !u!1 &1318387177
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1318387179}
-  - component: {fileID: 1318387178}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1318387178
+--- !u!114 &1318387178 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6225876318193740761, guid: 52202d49fcb8bf34199116360f6ee2ca, type: 3}
+  m_PrefabInstance: {fileID: 659187858108488319}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318387177}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5da0e67260a9399499085208c4d017f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMusicMuted: 0
-  isSoundEffectsMuted: 0
-  loopBackgroundMusic: 1
-  musicVolume: 0.704
-  soundEffectsVolume: 1
-  musicSource: {fileID: 0}
-  soundEffectsSource: {fileID: 0}
-  menuClickSound: {fileID: 8300000, guid: e222ed2a87475824c8fbbb3ad7817600, type: 3}
-  menuOpenCloseSound: {fileID: 8300000, guid: b4835b03ce4fb994191a7142b687c2d3, type: 3}
-  ak74GunSound: {fileID: 8300000, guid: 799ffa86e4782b94ba61cd94d4e0628d, type: 3}
-  enemyShotSound: {fileID: 8300000, guid: 63193e555fd6aae4e9a7a175b817f911, type: 3}
-  enemySlashSound: {fileID: 8300000, guid: e8a27091901014e3bb7a1944a03921fa, type: 3}
-  shotGunSound: {fileID: 8300000, guid: 5f6371bc2b7d8364e886eb5ce9433b4c, type: 3}
-  clipEmptySound: {fileID: 8300000, guid: 041cbdb0909e746c19c62d21306e8b9e, type: 3}
-  RocketLauncherSound: {fileID: 8300000, guid: 5f6371bc2b7d8364e886eb5ce9433b4c, type: 3}
-  pickupSound: {fileID: 8300000, guid: 3aa3ab3c3d5f24f4da6be38fa605a5e2, type: 3}
-  ammoPickupSound: {fileID: 8300000, guid: 5da85ce3a68a74105b8298eb64c11e73, type: 3}
-  explosionSound: {fileID: 8300000, guid: 4a13f8ae30e173347b4fac7011335f99, type: 3}
-  BulletHitSound: {fileID: 8300000, guid: aa3697133dec5435ea95a3c15aa7b7dd, type: 3}
-  deathRoarSound: {fileID: 8300000, guid: 84526fd995a20401fa0c0fccf653c5e2, type: 3}
-  doorOpenSound: {fileID: 8300000, guid: b4835b03ce4fb994191a7142b687c2d3, type: 3}
-  beamDownSound: {fileID: 8300000, guid: bf06d760bf90f4c1191432364af9eaab, type: 3}
-  backgroundMusic: {fileID: 8300000, guid: 1b9ba80b914b540f7b967496a060e838, type: 3}
---- !u!4 &1318387179
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318387177}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.679413, y: 23.383747, z: 11.450226}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1319040857
 GameObject:
   m_ObjectHideFlags: 0
@@ -57471,6 +57449,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 1041363210}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -65771,6 +65750,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 1179371100}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -79709,6 +79689,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 1421876114}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -80291,6 +80272,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 1374620368}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -87872,6 +87854,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 1913734583}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -94388,6 +94371,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 1151728777}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -95002,6 +94986,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 684773414}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -102766,6 +102751,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 1049854081}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -103415,6 +103401,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 483967651}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -104735,6 +104722,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6038982447950627514, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
+      propertyPath: E_bloodSplatter
+      value: 
+      objectReference: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}
     - target: {fileID: 7814605154688917528, guid: bd2c75792f551934aaf6ee7d459530aa, type: 3}
       propertyPath: detectionRadius
       value: 25
@@ -106254,6 +106245,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 358369490}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -107291,6 +107283,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 705335517}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -107874,6 +107867,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 11400000, guid: 707d3651bfe594344b6f9be030ed81e4, type: 2}
   gunPivot: {fileID: 122615458}
   currentGun: {fileID: 0}
+  currentHurtBox: {fileID: 0}
   meleeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -108175,6 +108169,63 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1001 &659187858108488319
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2160148074189942030, guid: 52202d49fcb8bf34199116360f6ee2ca, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803747873786401302, guid: 52202d49fcb8bf34199116360f6ee2ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.679413
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803747873786401302, guid: 52202d49fcb8bf34199116360f6ee2ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 23.383747
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803747873786401302, guid: 52202d49fcb8bf34199116360f6ee2ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.450226
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803747873786401302, guid: 52202d49fcb8bf34199116360f6ee2ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803747873786401302, guid: 52202d49fcb8bf34199116360f6ee2ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803747873786401302, guid: 52202d49fcb8bf34199116360f6ee2ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803747873786401302, guid: 52202d49fcb8bf34199116360f6ee2ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803747873786401302, guid: 52202d49fcb8bf34199116360f6ee2ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803747873786401302, guid: 52202d49fcb8bf34199116360f6ee2ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803747873786401302, guid: 52202d49fcb8bf34199116360f6ee2ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 52202d49fcb8bf34199116360f6ee2ca, type: 3}
 --- !u!1001 &726806804512106328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108412,7 +108463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3060271071271231847, guid: 5348eb3c107152e46a01538af762f851, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22000003
+      value: -1.15
       objectReference: {fileID: 0}
     - target: {fileID: 3060271071271231847, guid: 5348eb3c107152e46a01538af762f851, type: 3}
       propertyPath: m_LocalPosition.z
@@ -108446,6 +108497,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3716837590670983350, guid: 5348eb3c107152e46a01538af762f851, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006446826159396336, guid: 5348eb3c107152e46a01538af762f851, type: 3}
+      propertyPath: outOfRangeTransition.range
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6064547632009924646, guid: 5348eb3c107152e46a01538af762f851, type: 3}
       propertyPath: parent
       value: 
@@ -108453,6 +108512,10 @@ PrefabInstance:
     - target: {fileID: 7392459308980467909, guid: 5348eb3c107152e46a01538af762f851, type: 3}
       propertyPath: isActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423085298861862957, guid: 5348eb3c107152e46a01538af762f851, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7772077097497176860, guid: 5348eb3c107152e46a01538af762f851, type: 3}
       propertyPath: parent
@@ -108464,7 +108527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8976397122920921980, guid: 5348eb3c107152e46a01538af762f851, type: 3}
       propertyPath: hitMask.m_Bits
-      value: 1025
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -108866,6 +108929,6 @@ SceneRoots:
   - {fileID: 386064764}
   - {fileID: 213167660}
   - {fileID: 916583091}
-  - {fileID: 1318387179}
+  - {fileID: 659187858108488319}
   - {fileID: 694991908}
   - {fileID: 1071509359}

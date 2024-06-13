@@ -17,6 +17,7 @@ public class EnemyCombatControl : MonoBehaviour
     ProjectileGun projectileGunData;
 
     public GunControl currentGun;
+    public HurtBoxControl currentHurtBox;
 
     bool recoiling = false;
     float nextFireTime = 0;
@@ -66,6 +67,16 @@ public class EnemyCombatControl : MonoBehaviour
         }
     }
 
+    public void StartMeleeCast()
+    {
+        currentHurtBox.StartCast();
+    }
+
+    public void EndMeleeCast()
+    {
+        currentHurtBox.EndCast();
+    }
+
     public void MeleAttack(int attackIndex)
     {
         if (currentWeaponData.isMelee && currentWeaponData.meleeAttacks.Count > 0
@@ -83,7 +94,8 @@ public class EnemyCombatControl : MonoBehaviour
         {
             print("Weapon is a melee weapon, but attacks listed");
         }
-        else if (currentWeaponData.isMelee && currentWeaponData.meleeAttacks.Count > 0 && attackIndex > currentWeaponData.meleeAttacks.Count)
+        else if (currentWeaponData.isMelee 
+            && currentWeaponData.meleeAttacks.Count > 0 && attackIndex > currentWeaponData.meleeAttacks.Count)
         {
             print("Weapon is a melee weapon, and has attacks but attack index is too high");
         }
@@ -138,7 +150,7 @@ public class EnemyCombatControl : MonoBehaviour
 
     void BulletFire(Vector3 direction)
     {
-        if (currentWeaponData.ammoType == null)
+        if (currentWeaponData.ammoType == null) /// if no ammo type return ie if its melee
         {
             return;
         }

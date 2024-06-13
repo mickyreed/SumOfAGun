@@ -112,7 +112,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   parent: {fileID: 8960573510032185883}
-  E_bloodSplatter: {fileID: 381232736981211802, guid: 0cad54cf48728ff4e970b1cb0431db5f, type: 3}
+  E_bloodSplatter: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}
 --- !u!1 &981869890687008159
 GameObject:
   m_ObjectHideFlags: 0
@@ -5040,6 +5040,7 @@ GameObject:
   - component: {fileID: 5392762902660166486}
   - component: {fileID: 6038982447950627514}
   - component: {fileID: 2579274608010069947}
+  - component: {fileID: 3622195849311306941}
   m_Layer: 7
   m_Name: Sentinel
   m_TagString: AI
@@ -5131,7 +5132,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -5403,6 +5404,33 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!54 &3622195849311306941
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960573510032185883}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1965062974463946242
 PrefabInstance:
   m_ObjectHideFlags: 0
