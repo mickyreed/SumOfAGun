@@ -1,4 +1,7 @@
 # Sum Of A Gun
+
+![Space Marine in body armour holding Ak74](Images/u8nWdPC5EuUxSVSXPNub--1--mpsrc.png)
+
 ## Retro First Person Shooter prototype
 Prototype FPS Game Level made with C# in Unity, it is made in a retro 3D style with an aesthetic similar to Doom. 
     This is a GreyBoxed Level design built to test out a State Machine to Control Enemy AI behaviour 
