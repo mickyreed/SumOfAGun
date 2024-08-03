@@ -48,13 +48,6 @@ public class LevelLoader : MonoBehaviour
         //crossFadeCanvasGroup.GetComponent<Animation>().Play(animationName);
     }
 
-    //void LoadNextScene()
-    //{
-    //    Load the level_1 scene
-    //    SceneManager.LoadScene("Level_1");
-    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    //}
-
     void LoadNextScene()
     {
         Debug.Log("Load Next Scene is called");
@@ -82,8 +75,6 @@ public class LevelLoader : MonoBehaviour
     {
         Debug.Log("Load Scene By NameDelayed");
         // Load the scene with the specified name
-        //SceneManager.LoadScene(sceneToLoad);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         SceneManager.LoadScene(sceneToLoad);
 
     }
