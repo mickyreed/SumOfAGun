@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PickUp
+  - AI
+  - Head
   layers:
   - Default
   - TransparentFX
@@ -13,10 +15,10 @@ TagManager:
   - Water
   - UI
   - Projectiles
-  - 
-  - 
-  - 
-  - 
+  - Enemies
+  - Bodies
+  - Pickups
+  - Enviro
   - 
   - 
   - 

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d751312518a3239449abcfb3fdc3428a
+timeCreated: 1471532950
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73777
+  packageName: Legacy Particle Pack
+  packageVersion: 1.8
+  assetPath: Assets/CameraShakeFX/Demo/Particles/Materials/EmbersParticle.mat
+  uploadId: 563305

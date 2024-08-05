@@ -1,8 +1,9 @@
-# Sum Of A Gun
+javascript:void(0);javascript:void(0);# Sum Of A Gun
+
+## Retro First Person Shooter prototype
 
 ![Space Marine in body armour holding Ak74](Images/u8nWdPC5EuUxSVSXPNub--1--mpsrc.png)
 
-## Retro First Person Shooter prototype
 Prototype FPS Game Level made with C# in Unity, it is made in a retro 3D style with an aesthetic similar to Doom. 
     This is a GreyBoxed Level design built to test out a State Machine to Control Enemy AI behaviour 
     between idle, patrol, chase and attack. Two enemy variants have been created - Shooting and Melee Types, 
@@ -96,6 +97,4 @@ All Code has been adapted and built upon FPS tutorial code by Thomas Devenish (C
 - Explosion	Unity Particle Pack  (Standard Unity Asset Store EULA)
 - Sparks	Unity Particle Pack  (Standard Unity Asset Store EULA)
 - Blood Spray	Unity Particle Pack  (Standard Unity Asset Store EULA)
-
-
  

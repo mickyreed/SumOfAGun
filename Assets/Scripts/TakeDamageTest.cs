@@ -8,6 +8,7 @@ public class TakeDamageTest : MonoBehaviour
     public EventTypes.IntEvent tookDamage;
     [SerializeField]
     GameObject parent;
+    public GameObject E_bloodSplatter;
 
     public GameObject ReturnParentObj() //return parent object to make sure we havent collided with it
     {

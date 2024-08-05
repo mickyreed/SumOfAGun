@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 973b2fc39aa85594386474c132f6a299
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 279241
+  packageName: PBR Ground Textures
+  packageVersion: 1.0
+  assetPath: Assets/Ground_Textures/Materials/Ground_17.mat
+  uploadId: 656527

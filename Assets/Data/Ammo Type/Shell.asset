@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Shell
   m_EditorClassIdentifier: 
   maximumCapacity: 30
-  damage: 1
+  damage: 10

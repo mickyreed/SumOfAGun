@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 12775972448440940b8d96774574a40d
+timeCreated: 1472829232
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 127325
+  packageName: Particle Pack
+  packageVersion: 1.7
+  assetPath: Assets/CameraShakeFX/Demo/Particles/Materials/PlasmaExplosion.mat
+  uploadId: 564952

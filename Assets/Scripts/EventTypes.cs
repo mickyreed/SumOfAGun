@@ -6,7 +6,9 @@ using UnityEngine.Events;
 public static class EventTypes
 {
     public delegate void VoidDel();
+    public delegate void VoidVec3Del(Vector3 vector);
     public delegate void VoidBoolDel(bool value);
+
 
     [System.Serializable]
 
@@ -21,4 +23,18 @@ public static class EventTypes
     {
 
     }
+
+    [System.Serializable]
+    public class Vector3Event : UnityEvent<Vector3>
+    {
+
+    }
+
+    [System.Serializable]
+    public class MeleeAttackEvent : UnityEvent<MeleeAttackInfo> // pass in the struct
+    {
+
+    }
+
+
 }

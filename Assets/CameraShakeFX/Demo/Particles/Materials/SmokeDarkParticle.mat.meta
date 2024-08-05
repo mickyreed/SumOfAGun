@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5cce7b8cd10629f48adb75b1ae4b8aae
+timeCreated: 1471944184
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73777
+  packageName: Legacy Particle Pack
+  packageVersion: 1.8
+  assetPath: Assets/CameraShakeFX/Demo/Particles/Materials/SmokeDarkParticle.mat
+  uploadId: 563305

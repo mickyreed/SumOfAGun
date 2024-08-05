@@ -75,13 +75,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed62e8c3ca726c45ab6451d16e5dd2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 28
   refCollider: {fileID: 5278611541329990757}
   hitMask:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 137
   explodes: 1
-  explosionPrefab: {fileID: 7917809687101287239, guid: 805ebc38cc452fb4aa14e5dc83d37efb, type: 3}
+  explosionPrefab: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9, type: 3}
 --- !u!136 &5278611541329990757
 CapsuleCollider:
   m_ObjectHideFlags: 0

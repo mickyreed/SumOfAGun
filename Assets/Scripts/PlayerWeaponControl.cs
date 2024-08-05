@@ -6,10 +6,15 @@ public class PlayerWeaponControl : MonoBehaviour
 {
     // delegate to be a generic ru n the correct fire function based off the type of weapon
     EventTypes.VoidDel fire;
-    
+
+    private AudioManager audioManager;
+
     public Camera viewCamera;
     public LayerMask hitMask;
     public GunData currentWeaponData;
+    
+    public float damage = 10f;
+    public LayerMask enemyLayer;
 
     public List<GunData> guns = new List<GunData>();
     public Transform gunPivot; // where we will instantiate the guns
@@ -30,15 +35,22 @@ public class PlayerWeaponControl : MonoBehaviour
 
     public AmmoCounterGUIControl ammoGUI;
     public ReticleControl reticleGUI;
-    
+
+    public EventTypes.Vector3Event broadcastShot;
+
+    private PlayerScore playerScore;
+
     // Start is called before the first frame update
     void Start()
     {
         InitialiseAmmo();
+        audioManager = AudioManager.instance;
         BuildWeapon(currentGunIndex);
         ammoGUI.InitialiseGUI(currentWeaponData, ammoStore[currentWeaponData.ammoType]);
         reticleGUI.ChamgeReticle(currentWeaponData.reticleSprite, currentWeaponData.reticleSize);
         SetGunFireFunction();
+        
+        playerScore = GameObject.FindObjectOfType<PlayerScore>(); // Find the PlayerScore script in the scene
     }
 
     public void SwitchWeapons(int direction)
@@ -127,9 +139,12 @@ public class PlayerWeaponControl : MonoBehaviour
         else
         {
             fire();
+            broadcastShot.Invoke(transform.position);
         }
         
     }
+
+
 
     public void endFire()
     {
@@ -169,6 +184,8 @@ public class PlayerWeaponControl : MonoBehaviour
         {
             //play empty clip sound (out of ammo)
             print("clip is empty");
+            // Play gun sound
+            audioManager.PlaySound(audioManager.clipEmptySound);
             return;
         }
         else
@@ -177,6 +194,7 @@ public class PlayerWeaponControl : MonoBehaviour
         }
 
         Instantiate(currentWeaponData.E_muzzleFlash, currentGun.Muzzle.position, currentGun.Muzzle.rotation, currentGun.Muzzle);
+        audioManager.PlaySound(audioManager.ak74GunSound);
 
         //get bullet position correct (
         Vector3 bulletdir = ((viewCamera.transform.position + viewCamera.transform.forward * 1000) - currentGun.Muzzle.position).normalized;
@@ -187,13 +205,35 @@ public class PlayerWeaponControl : MonoBehaviour
         if (FireRay(viewCamera.transform.forward, out hit))
         //shoot a ray from camera forward for infinity until it hits will return true or false
         {
+            bool hitBody = false;
             TakeDamageTest hitObj = hit.collider.GetComponent<TakeDamageTest>();
             if (hitObj != null)
             {
-                hitObj.TakeDamage(currentWeaponData.ammoType.damage); //this using dependency injection
+                bool isHeadshot = hit.collider.CompareTag("Head");
+                hitObj.TakeDamage(currentWeaponData.ammoType.damage); // Using dependency injection
+                print("hit bullet");
+
+                if (isHeadshot)
+                {
+                    playerScore.AddScore(100); // Headshot points
+                }
+                else
+                {
+                    playerScore.AddScore(10); // Body shot points
+                }
+
+                hitBody = true;
             }
             //print(hit.collider.gameObject.name + "was hit at " + hit.point);
-            Instantiate(currentWeaponData.E_hitEffect, hit.point, Quaternion.identity);
+            if (hitBody)
+            {
+                Instantiate(hitObj.E_bloodSplatter, hit.point, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(currentWeaponData.E_hitEffect, hit.point, Quaternion.identity);
+            }
+            
             bulletdir = (hit.point - currentGun.Muzzle.position).normalized;
             didHit = true;
         }
@@ -225,6 +265,7 @@ public class PlayerWeaponControl : MonoBehaviour
         {
             //play empty clip sound (out of ammo)
             print("clip is empty");
+            audioManager.PlaySound(audioManager.clipEmptySound);
             return;
         }
         else
@@ -233,10 +274,11 @@ public class PlayerWeaponControl : MonoBehaviour
         }
 
         Instantiate(currentWeaponData.E_muzzleFlash, currentGun.Muzzle.position, currentGun.Muzzle.rotation, currentGun.Muzzle);
+        audioManager.PlaySound(audioManager.shotGunSound);
 
-        
 
-        for(int i = 0; i < areaGunData.shotCount; i++)
+
+        for (int i = 0; i < areaGunData.shotCount; i++)
         {
             //get bullet position correct (
             //Vector3 bulletdir = ((viewCamera.transform.position + viewCamera.transform.forward * 1000) - currentGun.Muzzle.position).normalized;
@@ -257,13 +299,33 @@ public class PlayerWeaponControl : MonoBehaviour
             if (Physics.Raycast(r, out hit, Mathf.Infinity, hitMask))
             //shoot a ray from camera forward for infinity until it hits will return true or false
             {
+                bool hitBody = false;
                 TakeDamageTest hitObj = hit.collider.GetComponent<TakeDamageTest>();
                 if (hitObj != null)
                 {
-                    hitObj.TakeDamage(currentWeaponData.ammoType.damage); //this using dependency injection
+                    bool isHeadshot = hit.collider.CompareTag("Head");
+                    hitObj.TakeDamage(currentWeaponData.ammoType.damage);
+
+                    if (isHeadshot)
+                    {
+                        playerScore.AddScore(40); // Headshot points
+                    }
+                    else
+                    {
+                        playerScore.AddScore(10); // Body shot points
+                    }
+
+                    hitBody = true;
                 }
-                
-                Instantiate(currentWeaponData.E_hitEffect, hit.point, Quaternion.identity);
+
+                if (hitBody)
+                {
+                    Instantiate(hitObj.E_bloodSplatter, hit.point, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(currentWeaponData.E_hitEffect, hit.point, Quaternion.identity);
+                }
                 //bulletdir = (hit.point - currentGun.Muzzle.position).normalized;
                 didHit = true;
             }
@@ -302,6 +364,7 @@ public class PlayerWeaponControl : MonoBehaviour
         {
             //play empty clip sound (out of ammo)
             print("clip is empty");
+            audioManager.PlaySound(audioManager.clipEmptySound);
             return;
         }
         else
@@ -310,6 +373,7 @@ public class PlayerWeaponControl : MonoBehaviour
         }
 
         Instantiate(currentWeaponData.E_muzzleFlash, currentGun.Muzzle.position, currentGun.Muzzle.rotation, currentGun.Muzzle);
+        audioManager.PlaySound(audioManager.RocketLauncherSound);
 
         Vector3 endPoint;
         RaycastHit hit;
@@ -317,6 +381,7 @@ public class PlayerWeaponControl : MonoBehaviour
         if(FireRay(viewCamera.transform.forward, out hit))
         {
             endPoint = hit.point;
+            playerScore.AddScore(50); // Body shot points
         }
         else
         {

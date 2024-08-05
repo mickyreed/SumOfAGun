@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.Rendering;
 
 [CreateAssetMenu()]
 public class GunData : ScriptableObject
@@ -20,6 +21,10 @@ public class GunData : ScriptableObject
 
     [Tooltip("Offset for spawning the gun into the players hands")]
     public Vector3 pivotOffset;
+
+    [Header("Melee")]
+    public bool isMelee = false;
+    public List<MeleeAttackInfo> meleeAttacks = new List<MeleeAttackInfo>();
 
     [Header("GUI")]
     public Sprite reticleSprite;
@@ -44,4 +49,25 @@ public class GunData : ScriptableObject
     [Tooltip("The SFX of projectile hitting the target")]
     public AudioClip A_impact;
 
+}
+
+[System.Serializable]
+public struct MeleeAttackInfo
+{
+    public string name;
+    public int damage;
+    //public string animationName;
+
+    ////constructor
+    //public MeleeAttackInfo(int damage, string animationName)
+    //{
+    //    this.damage = damage;
+    //    this.animationName = animationName;
+    //}
+
+    //public MeleeAttackInfo(string animationName)
+    //{
+    //    this.damage = 0;
+    //    this.animationName = animationName;
+    //}
 }
