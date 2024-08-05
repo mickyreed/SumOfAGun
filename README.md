@@ -1,4 +1,4 @@
-javascript:void(0);javascript:void(0);# Sum Of A Gun
+# Sum Of A Gun
 
 ## Retro First Person Shooter prototype
 
